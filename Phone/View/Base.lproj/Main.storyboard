@@ -1,0 +1,878 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xEw-EN-ziP">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Dial Pad View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="DialPadViewController" customModule="Phone" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="hNm-gh-5yj">
+                                <rect key="frame" x="0.0" y="74" width="414" height="719"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="uBz-rg-N0W" userLabel="Display Stack View">
+                                        <rect key="frame" x="40" y="0.0" width="334" height="121"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="25" translatesAutoresizingMaskIntoConstraints="NO" id="GH2-yz-dal">
+                                                <rect key="frame" x="0.0" y="0.0" width="334" height="60"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="NJA-tZ-olI"/>
+                                                </constraints>
+                                                <color key="textColor" name="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" textContentType="tel"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CvL-2W-nRT">
+                                                <rect key="frame" x="0.0" y="60" width="334" height="61"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <state key="normal" title="Add Number"/>
+                                                <connections>
+                                                    <action selector="tapOnAddNumber:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zJU-ks-IWp"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="GH2-yz-dal" firstAttribute="leading" secondItem="uBz-rg-N0W" secondAttribute="leading" id="9M3-KO-9zL"/>
+                                            <constraint firstItem="GH2-yz-dal" firstAttribute="centerX" secondItem="uBz-rg-N0W" secondAttribute="centerX" id="9f1-mf-pG2"/>
+                                            <constraint firstItem="CvL-2W-nRT" firstAttribute="centerX" secondItem="uBz-rg-N0W" secondAttribute="centerX" id="omG-TX-cZr"/>
+                                            <constraint firstAttribute="trailing" secondItem="GH2-yz-dal" secondAttribute="trailing" id="pCJ-bt-xKs"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" restorationIdentifier="keypad" axis="vertical" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="fs0-Be-DFy" userLabel="Keypad Stack View">
+                                        <rect key="frame" x="27.5" y="141" width="359" height="578"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TN9-zO-ckV" userLabel="123 Stack View">
+                                                <rect key="frame" x="0.0" y="0.0" width="359" height="99.5"/>
+                                                <subviews>
+                                                    <button opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VsM-rt-2yN">
+                                                        <rect key="frame" x="0.0" y="0.0" width="99.5" height="99.5"/>
+                                                        <color key="backgroundColor" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <accessibility key="accessibilityConfiguration" label="1"/>
+                                                        <gestureRecognizers/>
+                                                        <color key="tintColor" name="textColor"/>
+                                                        <state key="normal">
+                                                            <attributedString key="attributedTitle">
+                                                                <fragment content="1">
+                                                                    <attributes>
+                                                                        <color key="NSColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                        <font key="NSFont" size="35" name="AppleColorEmoji"/>
+                                                                        <font key="NSOriginalFont" metaFont="system" size="40"/>
+                                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                                <fragment>
+                                                                    <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                                                    <attributes>
+                                                                        <color key="NSColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                        <font key="NSFont" metaFont="system" size="40"/>
+                                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                                <fragment content=" ">
+                                                                    <attributes>
+                                                                        <color key="NSColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                        <font key="NSFont" size="10" name="MicrosoftSansSerif"/>
+                                                                        <font key="NSOriginalFont" size="10" name="MicrosoftSansSerif"/>
+                                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                            </attributedString>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="tapOnDialPad:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aE8-TE-tcn"/>
+                                                            <outletCollection property="gestureRecognizers" destination="q8d-yP-dH9" appends="YES" id="psf-HV-8Pj"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rL4-85-leg">
+                                                        <rect key="frame" x="129.5" y="0.0" width="100" height="99.5"/>
+                                                        <color key="backgroundColor" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <accessibility key="accessibilityConfiguration" label="2"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="rL4-85-leg" secondAttribute="height" multiplier="1:1" id="fCL-QL-iki"/>
+                                                        </constraints>
+                                                        <color key="tintColor" name="textColor"/>
+                                                        <state key="normal">
+                                                            <attributedString key="attributedTitle">
+                                                                <fragment content="2">
+                                                                    <attributes>
+                                                                        <color key="NSColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                        <font key="NSFont" size="35" name="AppleColorEmoji"/>
+                                                                        <font key="NSOriginalFont" size="35" name="AppleColorEmoji"/>
+                                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                                <fragment>
+                                                                    <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                                                    <attributes>
+                                                                        <color key="NSColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                        <font key="NSFont" metaFont="system" size="40"/>
+                                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                                <fragment content="A B C">
+                                                                    <attributes>
+                                                                        <color key="NSColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                        <font key="NSFont" size="10" name="MicrosoftSansSerif"/>
+                                                                        <font key="NSOriginalFont" size="10" name="MicrosoftSansSerif"/>
+                                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                            </attributedString>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="tapOnDialPad:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Cfc-5j-cCG"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HNJ-St-SEI">
+                                                        <rect key="frame" x="259.5" y="0.0" width="99.5" height="99.5"/>
+                                                        <color key="backgroundColor" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <accessibility key="accessibilityConfiguration" label="3"/>
+                                                        <color key="tintColor" name="textColor"/>
+                                                        <state key="normal">
+                                                            <attributedString key="attributedTitle">
+                                                                <fragment content="3">
+                                                                    <attributes>
+                                                                        <color key="NSColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                        <font key="NSFont" size="35" name="AppleColorEmoji"/>
+                                                                        <font key="NSOriginalFont" size="35" name="AppleColorEmoji"/>
+                                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                                <fragment>
+                                                                    <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                                                    <attributes>
+                                                                        <color key="NSColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                        <font key="NSFont" metaFont="system" size="15"/>
+                                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                                <fragment content="D E F">
+                                                                    <attributes>
+                                                                        <color key="NSColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                        <font key="NSFont" size="10" name="MicrosoftSansSerif"/>
+                                                                        <font key="NSOriginalFont" size="10" name="MicrosoftSansSerif"/>
+                                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                            </attributedString>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="tapOnDialPad:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gRj-e1-NPS"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H3t-1L-GbT" userLabel="456 Stack View">
+                                                <rect key="frame" x="0.0" y="119.5" width="359" height="99.5"/>
+                                                <subviews>
+                                                    <button opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Snx-e3-aKs">
+                                                        <rect key="frame" x="0.0" y="0.0" width="99.5" height="99.5"/>
+                                                        <color key="backgroundColor" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <accessibility key="accessibilityConfiguration" label="4"/>
+                                                        <color key="tintColor" name="textColor"/>
+                                                        <state key="normal">
+                                                            <attributedString key="attributedTitle">
+                                                                <fragment content="4">
+                                                                    <attributes>
+                                                                        <color key="NSColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                        <font key="NSFont" size="35" name="AppleColorEmoji"/>
+                                                                        <font key="NSOriginalFont" size="35" name="AppleColorEmoji"/>
+                                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                                <fragment>
+                                                                    <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                                                    <attributes>
+                                                                        <color key="NSColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                        <font key="NSFont" metaFont="system" size="15"/>
+                                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                                <fragment content="G H I">
+                                                                    <attributes>
+                                                                        <color key="NSColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                        <font key="NSFont" size="10" name="MicrosoftSansSerif"/>
+                                                                        <font key="NSOriginalFont" size="10" name="MicrosoftSansSerif"/>
+                                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                            </attributedString>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="tapOnDialPad:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1Yr-dY-q7f"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lFp-l3-LWG">
+                                                        <rect key="frame" x="129.5" y="0.0" width="100" height="99.5"/>
+                                                        <color key="backgroundColor" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <accessibility key="accessibilityConfiguration" label="5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="lFp-l3-LWG" secondAttribute="height" multiplier="1:1" id="k5l-ft-HOi"/>
+                                                        </constraints>
+                                                        <color key="tintColor" name="textColor"/>
+                                                        <state key="normal">
+                                                            <attributedString key="attributedTitle">
+                                                                <fragment content="5">
+                                                                    <attributes>
+                                                                        <color key="NSColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                        <font key="NSFont" size="35" name="AppleColorEmoji"/>
+                                                                        <font key="NSOriginalFont" size="35" name="AppleColorEmoji"/>
+                                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                                <fragment>
+                                                                    <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                                                    <attributes>
+                                                                        <color key="NSColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                        <font key="NSFont" metaFont="system" size="15"/>
+                                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                                <fragment content="J K L">
+                                                                    <attributes>
+                                                                        <color key="NSColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                        <font key="NSFont" size="10" name="MicrosoftSansSerif"/>
+                                                                        <font key="NSOriginalFont" size="10" name="MicrosoftSansSerif"/>
+                                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                            </attributedString>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="tapOnDialPad:" destination="BYZ-38-t0r" eventType="touchUpInside" id="f2j-AO-X6O"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Gp-fz-owM">
+                                                        <rect key="frame" x="259.5" y="0.0" width="99.5" height="99.5"/>
+                                                        <color key="backgroundColor" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <accessibility key="accessibilityConfiguration" label="6"/>
+                                                        <color key="tintColor" name="textColor"/>
+                                                        <state key="normal">
+                                                            <attributedString key="attributedTitle">
+                                                                <fragment content="6">
+                                                                    <attributes>
+                                                                        <color key="NSColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                        <font key="NSFont" size="35" name="AppleColorEmoji"/>
+                                                                        <font key="NSOriginalFont" size="35" name="AppleColorEmoji"/>
+                                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                                <fragment>
+                                                                    <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                                                    <attributes>
+                                                                        <color key="NSColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                        <font key="NSFont" metaFont="system" size="15"/>
+                                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                                <fragment content="M N O">
+                                                                    <attributes>
+                                                                        <color key="NSColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                        <font key="NSFont" size="10" name="MicrosoftSansSerif"/>
+                                                                        <font key="NSOriginalFont" size="10" name="MicrosoftSansSerif"/>
+                                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                            </attributedString>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="tapOnDialPad:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CUI-Sg-OA0"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QFO-Mm-IU7" userLabel="789 Stack View">
+                                                <rect key="frame" x="0.0" y="239" width="359" height="100"/>
+                                                <subviews>
+                                                    <button opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tyl-f7-hPL">
+                                                        <rect key="frame" x="0.0" y="0.0" width="99.5" height="100"/>
+                                                        <color key="backgroundColor" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <accessibility key="accessibilityConfiguration" label="7"/>
+                                                        <color key="tintColor" name="textColor"/>
+                                                        <state key="normal">
+                                                            <attributedString key="attributedTitle">
+                                                                <fragment content="7">
+                                                                    <attributes>
+                                                                        <color key="NSColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                        <font key="NSFont" size="35" name="AppleColorEmoji"/>
+                                                                        <font key="NSOriginalFont" size="35" name="AppleColorEmoji"/>
+                                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                                <fragment>
+                                                                    <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                                                    <attributes>
+                                                                        <color key="NSColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                        <font key="NSFont" metaFont="system" size="15"/>
+                                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                                <fragment content="P Q R S">
+                                                                    <attributes>
+                                                                        <color key="NSColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                        <font key="NSFont" size="10" name="MicrosoftSansSerif"/>
+                                                                        <font key="NSOriginalFont" size="10" name="MicrosoftSansSerif"/>
+                                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                            </attributedString>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="tapOnDialPad:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2Wa-SR-VkZ"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CiX-Bt-jST">
+                                                        <rect key="frame" x="129.5" y="0.0" width="100" height="100"/>
+                                                        <color key="backgroundColor" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <accessibility key="accessibilityConfiguration" label="8"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="CiX-Bt-jST" secondAttribute="height" multiplier="1:1" id="igS-Ke-E2v"/>
+                                                        </constraints>
+                                                        <color key="tintColor" name="textColor"/>
+                                                        <state key="normal">
+                                                            <attributedString key="attributedTitle">
+                                                                <fragment content="8">
+                                                                    <attributes>
+                                                                        <color key="NSColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                        <font key="NSFont" size="35" name="AppleColorEmoji"/>
+                                                                        <font key="NSOriginalFont" size="35" name="AppleColorEmoji"/>
+                                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                                <fragment>
+                                                                    <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                                                    <attributes>
+                                                                        <color key="NSColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                        <font key="NSFont" metaFont="system" size="15"/>
+                                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                                <fragment content="T U V">
+                                                                    <attributes>
+                                                                        <color key="NSColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                        <font key="NSFont" size="10" name="MicrosoftSansSerif"/>
+                                                                        <font key="NSOriginalFont" size="10" name="MicrosoftSansSerif"/>
+                                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                            </attributedString>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="tapOnDialPad:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KAk-5b-QVF"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cEy-hO-TcQ">
+                                                        <rect key="frame" x="259.5" y="0.0" width="99.5" height="100"/>
+                                                        <color key="backgroundColor" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <accessibility key="accessibilityConfiguration" label="9"/>
+                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal">
+                                                            <attributedString key="attributedTitle">
+                                                                <fragment content="9">
+                                                                    <attributes>
+                                                                        <color key="NSColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                        <font key="NSFont" size="35" name="AppleColorEmoji"/>
+                                                                        <font key="NSOriginalFont" size="35" name="AppleColorEmoji"/>
+                                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                                <fragment>
+                                                                    <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                                                    <attributes>
+                                                                        <color key="NSColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                        <font key="NSFont" metaFont="system" size="15"/>
+                                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                                <fragment content="W X Y Z">
+                                                                    <attributes>
+                                                                        <color key="NSColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                        <font key="NSFont" size="10" name="MicrosoftSansSerif"/>
+                                                                        <font key="NSOriginalFont" size="10" name="MicrosoftSansSerif"/>
+                                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                            </attributedString>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="tapOnDialPad:" destination="BYZ-38-t0r" eventType="touchUpInside" id="T6P-Mh-PSr"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r8Z-ik-QPG" userLabel="*0# Stack View">
+                                                <rect key="frame" x="0.0" y="359" width="359" height="99.5"/>
+                                                <subviews>
+                                                    <button opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="0sw-BX-zSP">
+                                                        <rect key="frame" x="0.0" y="0.0" width="99.5" height="99.5"/>
+                                                        <color key="backgroundColor" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <accessibility key="accessibilityConfiguration" label="*"/>
+                                                        <gestureRecognizers/>
+                                                        <color key="tintColor" name="textColor"/>
+                                                        <state key="normal" image="staroflife.fill" catalog="system">
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="tapOnDialPad:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zL9-Df-aec"/>
+                                                            <outletCollection property="gestureRecognizers" destination="EPT-Fu-Tyy" appends="YES" id="U1b-88-Kug"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ha0-JN-Mq9">
+                                                        <rect key="frame" x="129.5" y="0.0" width="100" height="99.5"/>
+                                                        <color key="backgroundColor" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <accessibility key="accessibilityConfiguration" label="0"/>
+                                                        <gestureRecognizers/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="ha0-JN-Mq9" secondAttribute="height" multiplier="1:1" id="erF-Jr-cdi"/>
+                                                        </constraints>
+                                                        <state key="normal">
+                                                            <attributedString key="attributedTitle">
+                                                                <fragment content="0">
+                                                                    <attributes>
+                                                                        <color key="NSColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                        <font key="NSFont" size="35" name="AppleColorEmoji"/>
+                                                                        <font key="NSOriginalFont" size="35" name="AppleColorEmoji"/>
+                                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                                <fragment>
+                                                                    <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                                                    <attributes>
+                                                                        <color key="NSColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                        <font key="NSFont" metaFont="system" size="15"/>
+                                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                                <fragment content="+">
+                                                                    <attributes>
+                                                                        <color key="NSColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                        <font key="NSFont" size="13" name="MicrosoftSansSerif"/>
+                                                                        <font key="NSOriginalFont" size="13" name="MicrosoftSansSerif"/>
+                                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                            </attributedString>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="tapOnDialPad:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aHB-8V-Xio"/>
+                                                            <outletCollection property="gestureRecognizers" destination="12Q-ow-n4c" appends="YES" id="RPj-sH-6XA"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="rmA-Lc-oLm">
+                                                        <rect key="frame" x="259.5" y="0.0" width="99.5" height="99.5"/>
+                                                        <color key="backgroundColor" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <accessibility key="accessibilityConfiguration" label="#"/>
+                                                        <gestureRecognizers/>
+                                                        <color key="tintColor" name="textColor"/>
+                                                        <state key="normal" image="grid" catalog="system">
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="tapOnDialPad:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jKc-GE-b3P"/>
+                                                            <outletCollection property="gestureRecognizers" destination="CNN-tb-htf" appends="YES" id="J0g-SX-mIe"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NSm-fX-iot" userLabel="Call Stack View">
+                                                <rect key="frame" x="0.0" y="478.5" width="359" height="99.5"/>
+                                                <subviews>
+                                                    <button opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M0c-Ba-uDm">
+                                                        <rect key="frame" x="0.0" y="0.0" width="99.5" height="99.5"/>
+                                                        <color key="tintColor" name="textColor"/>
+                                                    </button>
+                                                    <button opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bto-QU-ef9">
+                                                        <rect key="frame" x="129.5" y="0.0" width="100" height="99.5"/>
+                                                        <color key="backgroundColor" red="0.073753198559999997" green="0.87680132769999997" blue="0.18991587239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" secondItem="Bto-QU-ef9" secondAttribute="width" multiplier="1:1" id="Y0l-fP-8Rd"/>
+                                                        </constraints>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" image="phone.fill" catalog="system">
+                                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="tapOnCallButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hqJ-3C-DYV"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aTI-mk-6NE">
+                                                        <rect key="frame" x="259.5" y="0.0" width="99.5" height="99.5"/>
+                                                        <accessibility key="accessibilityConfiguration" label="del"/>
+                                                        <gestureRecognizers/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                        <color key="tintColor" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <state key="normal" image="delete.left.fill" catalog="system">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="32"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="tapOnDelete:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HGa-4I-Ewa"/>
+                                                            <outletCollection property="gestureRecognizers" destination="omL-y4-7Kf" appends="YES" id="laT-uW-XlM"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="uBz-rg-N0W" firstAttribute="leading" secondItem="hNm-gh-5yj" secondAttribute="leading" constant="40" id="4Dl-r6-a9Q"/>
+                                    <constraint firstAttribute="trailing" secondItem="uBz-rg-N0W" secondAttribute="trailing" constant="40" id="Hez-Po-adM"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" name="backgroundColor"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="hNm-gh-5yj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="ISi-yp-HNi"/>
+                            <constraint firstItem="hNm-gh-5yj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="a9l-Xm-Q64"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="hNm-gh-5yj" secondAttribute="bottom" constant="20" id="cJa-O7-A38"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hNm-gh-5yj" secondAttribute="trailing" id="ekc-R3-B43"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="Syr-qh-jni"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="addNrButton" destination="CvL-2W-nRT" id="Pt2-qE-0SZ"/>
+                        <outlet property="callButton" destination="Bto-QU-ef9" id="F6C-cl-dt5"/>
+                        <outlet property="deleteButton" destination="aTI-mk-6NE" id="t28-rO-nRF"/>
+                        <outlet property="eightButton" destination="CiX-Bt-jST" id="rzE-at-zzm"/>
+                        <outlet property="entryField" destination="GH2-yz-dal" id="MHY-Mp-Tqw"/>
+                        <outlet property="fiveButton" destination="lFp-l3-LWG" id="Uqg-5b-9C0"/>
+                        <outlet property="fourButton" destination="Snx-e3-aKs" id="VZe-Gy-JsH"/>
+                        <outlet property="gridButton" destination="rmA-Lc-oLm" id="ChC-SK-Q8a"/>
+                        <outlet property="nineButton" destination="cEy-hO-TcQ" id="MPR-hV-YDx"/>
+                        <outlet property="oneButton" destination="VsM-rt-2yN" id="TfX-yx-ciw"/>
+                        <outlet property="sevenButton" destination="Tyl-f7-hPL" id="oJh-Xr-mzO"/>
+                        <outlet property="sixButton" destination="7Gp-fz-owM" id="fjS-SV-7L9"/>
+                        <outlet property="starButton" destination="0sw-BX-zSP" id="bMv-JZ-4B9"/>
+                        <outlet property="threeButton" destination="HNJ-St-SEI" id="NZD-h5-UKW"/>
+                        <outlet property="twoButton" destination="rL4-85-leg" id="vVv-ws-cCu"/>
+                        <outlet property="zeroButton" destination="ha0-JN-Mq9" id="nSb-tw-V1p"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="1" id="q8d-yP-dH9" userLabel="longPressOnOne">
+                    <connections>
+                        <action selector="longPressed:" destination="BYZ-38-t0r" id="Q4C-Cy-dQW"/>
+                        <outlet property="delegate" destination="VsM-rt-2yN" id="f0P-aD-WF7"/>
+                    </connections>
+                </pongPressGestureRecognizer>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="1" id="EPT-Fu-Tyy" userLabel="longPressOnStar">
+                    <connections>
+                        <action selector="longPressed:" destination="BYZ-38-t0r" id="TyG-cR-nli"/>
+                        <outlet property="delegate" destination="0sw-BX-zSP" id="VxH-LC-qWC"/>
+                    </connections>
+                </pongPressGestureRecognizer>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="1" id="12Q-ow-n4c" userLabel="longPressonZero">
+                    <connections>
+                        <action selector="longPressed:" destination="BYZ-38-t0r" id="BYv-Ox-NvG"/>
+                        <outlet property="delegate" destination="ha0-JN-Mq9" id="BJa-Al-nEP"/>
+                    </connections>
+                </pongPressGestureRecognizer>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="1" id="CNN-tb-htf" userLabel="longPressOnGrid">
+                    <connections>
+                        <action selector="longPressed:" destination="BYZ-38-t0r" id="U7g-k8-IFH"/>
+                        <outlet property="delegate" destination="rmA-Lc-oLm" id="rFY-hq-LzH"/>
+                    </connections>
+                </pongPressGestureRecognizer>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="1" id="omL-y4-7Kf" userLabel="longPressOnDelete">
+                    <connections>
+                        <action selector="longPressed:" destination="BYZ-38-t0r" id="LRu-hi-jdb"/>
+                        <outlet property="delegate" destination="aTI-mk-6NE" id="sVE-6n-kGR"/>
+                    </connections>
+                </pongPressGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="2817" y="-603"/>
+        </scene>
+        <!--Call Logs View Controller-->
+        <scene sceneID="b7S-if-BWU">
+            <objects>
+                <viewController id="qRu-CR-ijy" customClass="CallLogsViewController" customModule="Phone" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="d6R-Oa-PQO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Recents" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NjM-pr-Gmq">
+                                <rect key="frame" x="20" y="88" width="153" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" name="backgroundColor"/>
+                        <viewLayoutGuide key="safeArea" id="bbD-h1-2jK"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="HfS-jy-L3U">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="zXv-TR-VEc">
+                            <rect key="frame" x="143.5" y="5.5" width="127" height="33"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="All"/>
+                                <segment title="Missed"/>
+                            </segments>
+                        </segmentedControl>
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="Cy9-4k-waW"/>
+                    </navigationItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hq9-Yf-PTW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6223" y="-615"/>
+        </scene>
+        <!--Contacts View Controller-->
+        <scene sceneID="KiH-EH-JVe">
+            <objects>
+                <viewController id="Xva-do-pR1" customClass="ContactsViewController" customModule="Phone" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Wry-d8-Bfi">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Contacts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GbJ-S1-l9e">
+                                <rect key="frame" x="20" y="88" width="170" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" name="backgroundColor"/>
+                        <viewLayoutGuide key="safeArea" id="Mu9-hs-z7L"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="0YE-xe-lte">
+                        <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="UCf-Op-vp9"/>
+                    </navigationItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3am-sp-HJe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3726" y="798"/>
+        </scene>
+        <!--Favorites View Controller-->
+        <scene sceneID="K47-Dq-3xv">
+            <objects>
+                <viewController id="LtS-zf-gvj" customClass="FavoritesViewController" customModule="Phone" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ysJ-xw-BkU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Favorites" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kvq-tx-rlJ">
+                                <rect key="frame" x="20" y="88" width="171" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" name="backgroundColor"/>
+                        <viewLayoutGuide key="safeArea" id="ckd-bk-JVN"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="H7c-Ig-JgJ">
+                        <barButtonItem key="leftBarButtonItem" image="plus" catalog="system" id="AH3-8l-49p"/>
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="Jkq-Al-WCt"/>
+                    </navigationItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lvH-ub-X8B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5467" y="798"/>
+        </scene>
+        <!--Voice Mail View Controller-->
+        <scene sceneID="jC4-sG-wzx">
+            <objects>
+                <viewController id="BGZ-DM-uTh" customClass="VoiceMailViewController" customModule="Phone" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hIs-Xl-d3Z">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Voicemail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UEa-bb-iLE">
+                                <rect key="frame" x="20" y="88" width="180" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" name="backgroundColor"/>
+                        <viewLayoutGuide key="safeArea" id="nha-KA-CI7"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="xDP-QS-9zY"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qwa-8K-3J6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4587" y="798"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="fOx-SJ-mvm">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="xEw-EN-ziP" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="lcb-iN-Cyz">
+                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="kEG-yc-2hL" kind="relationship" relationship="viewControllers" id="Dgm-0P-Qbs"/>
+                        <segue destination="Bym-eE-u6O" kind="relationship" relationship="viewControllers" id="Zfd-63-Zs6"/>
+                        <segue destination="Slw-j0-WkM" kind="relationship" relationship="viewControllers" id="kjE-OY-WXP"/>
+                        <segue destination="GgF-h8-tW0" kind="relationship" relationship="viewControllers" id="pPV-Jh-T6K"/>
+                        <segue destination="o21-Gl-WoO" kind="relationship" relationship="viewControllers" id="63i-SI-Zn0"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PM2-7c-Q1K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4587" y="-615"/>
+        </scene>
+        <!--Keypad-->
+        <scene sceneID="v38-QQ-6yc">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="GgF-h8-tW0" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Keypad" image="circle.grid.3x3.fill" catalog="system" selectedImage="circle.grid.3x3.fill" id="4ul-0H-VFB"/>
+                    <toolbarItems/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="s5E-i1-08e">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="ND2-3S-IIT"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="15E-2b-csI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3725" y="-615"/>
+        </scene>
+        <!--Contacts-->
+        <scene sceneID="yD7-ZK-AUM">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Slw-j0-WkM" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Contacts" image="person.crop.circle" catalog="system" selectedImage="person.crop.circle" id="RwX-ip-ceI"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Bz9-0H-pBg">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Xva-do-pR1" kind="relationship" relationship="rootViewController" id="oqU-eg-iLl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kGm-84-aCf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3725" y="100"/>
+        </scene>
+        <!--Voicemail-->
+        <scene sceneID="6qZ-J3-oLo">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="o21-Gl-WoO" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Voicemail" image="recordingtape" catalog="system" selectedImage="recordingtape" id="Se0-Vu-wWX"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="MwT-xS-8Ve">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BGZ-DM-uTh" kind="relationship" relationship="rootViewController" id="hGZ-BG-3It"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TpE-6P-Y0V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4587" y="100"/>
+        </scene>
+        <!--Favorites-->
+        <scene sceneID="Bpu-0P-VJ7">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kEG-yc-2hL" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Favorites" image="star.fill" catalog="system" selectedImage="star.fill" id="S4E-jB-qg4"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Rya-ve-cXf">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="LtS-zf-gvj" kind="relationship" relationship="rootViewController" id="vlb-xo-1Ba"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vJ1-pc-R3z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5467" y="100"/>
+        </scene>
+        <!--Recents-->
+        <scene sceneID="6cm-EL-cdx">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Bym-eE-u6O" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Recents" image="clock.fill" catalog="system" selectedImage="clock.fill" id="0Qa-Cq-p2S"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="K54-GP-OrW">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="qRu-CR-ijy" kind="relationship" relationship="rootViewController" id="w0E-bV-h1B"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tja-ce-cMU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5467" y="-615"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="circle.grid.3x3.fill" catalog="system" width="128" height="112"/>
+        <image name="clock.fill" catalog="system" width="128" height="121"/>
+        <image name="delete.left.fill" catalog="system" width="128" height="104"/>
+        <image name="grid" catalog="system" width="128" height="112"/>
+        <image name="person.crop.circle" catalog="system" width="128" height="121"/>
+        <image name="phone.fill" catalog="system" width="128" height="114"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="recordingtape" catalog="system" width="128" height="60"/>
+        <image name="star.fill" catalog="system" width="128" height="116"/>
+        <image name="staroflife.fill" catalog="system" width="124" height="128"/>
+        <namedColor name="backgroundColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="textColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
