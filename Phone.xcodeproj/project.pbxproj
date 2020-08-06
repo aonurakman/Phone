@@ -20,6 +20,7 @@
 		CA10030224D96B0A00CE5880 /* ContactDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA10030124D96B0A00CE5880 /* ContactDetailsViewController.swift */; };
 		CA10030424D96B2F00CE5880 /* Edit&AddContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA10030324D96B2F00CE5880 /* Edit&AddContactViewController.swift */; };
 		CA10030824D97C2700CE5880 /* SecondaryStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA10030724D97C2700CE5880 /* SecondaryStoryboard.storyboard */; };
+		CAEF6F4D24DC3C2700F7D028 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEF6F4C24DC3C2700F7D028 /* Contact.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		CA10030124D96B0A00CE5880 /* ContactDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailsViewController.swift; sourceTree = "<group>"; };
 		CA10030324D96B2F00CE5880 /* Edit&AddContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Edit&AddContactViewController.swift"; sourceTree = "<group>"; };
 		CA10030724D97C2700CE5880 /* SecondaryStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SecondaryStoryboard.storyboard; sourceTree = "<group>"; };
+		CAEF6F4C24DC3C2700F7D028 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 			children = (
 				CA1002E524D93D3200CE5880 /* AppDelegate.swift */,
 				CA1002E724D93D3200CE5880 /* SceneDelegate.swift */,
+				CAEF6F4B24DC3C0900F7D028 /* Model */,
 				CA10030624D96C1200CE5880 /* View */,
 				CA10030524D96B5100CE5880 /* Controller */,
 				CA1002EE24D93D3300CE5880 /* Assets.xcassets */,
@@ -102,6 +105,14 @@
 				CA10030724D97C2700CE5880 /* SecondaryStoryboard.storyboard */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		CAEF6F4B24DC3C0900F7D028 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CAEF6F4C24DC3C2700F7D028 /* Contact.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,6 +189,7 @@
 			files = (
 				CA1002EA24D93D3200CE5880 /* DialPadViewController.swift in Sources */,
 				CA1002E624D93D3200CE5880 /* AppDelegate.swift in Sources */,
+				CAEF6F4D24DC3C2700F7D028 /* Contact.swift in Sources */,
 				CA1002FA24D96A8300CE5880 /* FavoritesViewController.swift in Sources */,
 				CA1002FC24D96AAE00CE5880 /* CallLogsViewController.swift in Sources */,
 				CA1002E824D93D3200CE5880 /* SceneDelegate.swift in Sources */,

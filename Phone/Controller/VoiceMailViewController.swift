@@ -12,19 +12,23 @@ class VoiceMailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.navigationController?.navigationBar.shadowImage = UIImage()
         // Do any additional setup after loading the view.
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func callVmTapped(_ sender: UIButton) {
+        popSingleActionAlert("Cannot Call Voicemail", "This application is not authorized to make voicemail calls.")
     }
-    */
-
+    
+    func popSingleActionAlert(_ title: String, _ message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Done", style: .default, handler: nil))
+        self.present(alert, animated: true)
+    }
+    
+    
+    
 }
+
+

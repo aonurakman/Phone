@@ -110,24 +110,49 @@ class DialPadViewController: UIViewController, UITextFieldDelegate {
         let button = sender.delegate as! UIButton
         
         if sender.state == .began {
-            AudioServicesPlaySystemSound(SystemSoundID(button.accessibilityLabel!.soundValue()))
             switch button.accessibilityLabel {
-            case "*":
-                entryField.insertText(",")
-            case "0":
-                entryField.insertText("+")
-            case "#":
-                entryField.insertText(";")
+            case "del":
+                tapOnDelete(button)
             default:
-                print("1")
+                tapOnDialPad(button)
             }
         }
         
+        AudioServicesPlaySystemSound(SystemSoundID(button.accessibilityLabel!.soundValue()))
         if button.accessibilityLabel == "del"{
             tapOnDelete(button)
         }
         
-        
+        if sender.state == .ended {
+            switch button.accessibilityLabel {
+            case "*":
+                if entryField.text?.count != 1 {
+                    tapOnDelete(button)
+                    entryField.insertText(",")
+                }
+            case "0":
+                tapOnDelete(button)
+                entryField.insertText("+")
+            case "#":
+                if entryField.text?.count != 1 {
+                    tapOnDelete(button)
+                    entryField.insertText(";")
+                }
+            case "1":
+                tapOnDelete(button)
+                popSingleActionAlert("Cannot Call Voicemail", "This application is not authorized to make voicemail calls.")
+            case "del":
+                tapOnDelete(button)
+            default:
+                print("Long press completed")
+            }
+        }
+    }
+    
+    func popSingleActionAlert(_ title: String, _ message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Done", style: .default, handler: nil))
+        self.present(alert, animated: true)
     }
     
 }
