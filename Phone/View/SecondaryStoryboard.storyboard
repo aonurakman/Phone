@@ -1,7 +1,187 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13142" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12042"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <scenes/>
+    <scenes>
+        <!--New Contact-->
+        <scene sceneID="WJF-cU-Nfn">
+            <objects>
+                <viewController id="G7F-SL-gLs" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bAA-Zi-Yqj">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.crop.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="bsr-dI-Cnk">
+                                <rect key="frame" x="124.5" y="88.5" width="165" height="164"/>
+                                <color key="tintColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="165" id="NYE-D9-zLT"/>
+                                    <constraint firstAttribute="width" constant="165" id="bSy-jZ-A3p"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LbM-F5-D7m">
+                                <rect key="frame" x="164.5" y="253" width="85" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Add Photo"/>
+                            </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Fc-t5-N4u">
+                                <rect key="frame" x="0.0" y="295" width="414" height="1378"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fFc-xn-lyI">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="544"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Prefix" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iIj-y8-kQA">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ODY-fc-Zkh">
+                                                <rect key="frame" x="0.0" y="34" width="414" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phonetic first name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wA1-Se-k5v">
+                                                <rect key="frame" x="0.0" y="68" width="414" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Pronunciation first name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SGv-6X-nHM">
+                                                <rect key="frame" x="0.0" y="102" width="414" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Middle name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vEL-rO-w1d">
+                                                <rect key="frame" x="0.0" y="136" width="414" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phonetic middle name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g42-I5-fNl">
+                                                <rect key="frame" x="0.0" y="170" width="414" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TZV-uU-thA">
+                                                <rect key="frame" x="0.0" y="204" width="414" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phonetic last name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SUl-PL-oxf">
+                                                <rect key="frame" x="0.0" y="238" width="414" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Pronunciation last name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H2W-0I-AIr">
+                                                <rect key="frame" x="0.0" y="272" width="414" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Maiden name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LrF-x5-qDx">
+                                                <rect key="frame" x="0.0" y="306" width="414" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Suffix" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XT3-ce-UVu">
+                                                <rect key="frame" x="0.0" y="340" width="414" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nickname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9TW-Z1-Fy7">
+                                                <rect key="frame" x="0.0" y="374" width="414" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Job title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Arm-0B-qTs">
+                                                <rect key="frame" x="0.0" y="408" width="414" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Department" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bOn-go-HvO">
+                                                <rect key="frame" x="0.0" y="442" width="414" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Company" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7yy-FX-OVi">
+                                                <rect key="frame" x="0.0" y="476" width="414" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phonetic company name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rzn-95-A4a">
+                                                <rect key="frame" x="0.0" y="510" width="414" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="FHL-H6-VRq">
+                                        <rect key="frame" x="0.0" y="594" width="414" height="22"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kRK-7u-RXd">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="22"/>
+                                                <color key="tintColor" red="0.073753198559999997" green="0.87680132769999997" blue="0.18991587239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" title="add phone" image="plus.circle.fill" catalog="system"/>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="FHL-H6-VRq" firstAttribute="top" secondItem="fFc-xn-lyI" secondAttribute="bottom" constant="50" id="4FY-6F-0uI"/>
+                                    <constraint firstItem="qvF-4s-W6d" firstAttribute="trailing" secondItem="FHL-H6-VRq" secondAttribute="trailing" id="69n-vf-anF"/>
+                                    <constraint firstItem="fFc-xn-lyI" firstAttribute="top" secondItem="qvF-4s-W6d" secondAttribute="top" id="aP5-wK-AdW"/>
+                                    <constraint firstItem="FHL-H6-VRq" firstAttribute="leading" secondItem="qvF-4s-W6d" secondAttribute="leading" id="kc0-JO-QCc"/>
+                                    <constraint firstItem="qvF-4s-W6d" firstAttribute="trailing" secondItem="fFc-xn-lyI" secondAttribute="trailing" id="mAU-1y-WmS"/>
+                                    <constraint firstItem="fFc-xn-lyI" firstAttribute="leading" secondItem="qvF-4s-W6d" secondAttribute="leading" id="wPC-Oc-hVD"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="nQR-Ub-6gW"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="qvF-4s-W6d"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="LbM-F5-D7m" firstAttribute="centerX" secondItem="bAA-Zi-Yqj" secondAttribute="centerX" id="0yN-A9-iwu"/>
+                            <constraint firstItem="LbM-F5-D7m" firstAttribute="top" secondItem="bsr-dI-Cnk" secondAttribute="bottom" id="4Bk-HK-Zof"/>
+                            <constraint firstItem="bsr-dI-Cnk" firstAttribute="centerX" secondItem="bAA-Zi-Yqj" secondAttribute="centerX" id="CV5-lZ-C8Q"/>
+                            <constraint firstItem="8Fc-t5-N4u" firstAttribute="trailing" secondItem="ePh-P6-ZhL" secondAttribute="trailing" id="Qfz-Wf-tM1"/>
+                            <constraint firstItem="8Fc-t5-N4u" firstAttribute="leading" secondItem="ePh-P6-ZhL" secondAttribute="leading" id="YmG-wr-E4K"/>
+                            <constraint firstItem="bsr-dI-Cnk" firstAttribute="top" secondItem="ePh-P6-ZhL" secondAttribute="top" id="kn6-mc-yJu"/>
+                            <constraint firstAttribute="bottom" secondItem="8Fc-t5-N4u" secondAttribute="bottom" id="m6V-HD-yGq"/>
+                            <constraint firstItem="8Fc-t5-N4u" firstAttribute="top" secondItem="LbM-F5-D7m" secondAttribute="bottom" constant="5" id="rfE-h4-dmm"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ePh-P6-ZhL"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="New Contact" id="LtI-uq-AGe">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="G5d-1w-FFI"/>
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="WsG-8j-jgy"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hvC-3V-erz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="442.02898550724643" y="-150"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ocI-MF-7I1">
+            <objects>
+                <navigationController storyboardIdentifier="secondaryStoryboard" automaticallyAdjustsScrollViewInsets="NO" id="M4g-V3-qzH" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ZBm-8U-o5c">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="G7F-SL-gLs" kind="relationship" relationship="rootViewController" id="CUM-bu-ZVk"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a85-fs-G6l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-468.11594202898556" y="-150"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="person.crop.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
+    </resources>
 </document>

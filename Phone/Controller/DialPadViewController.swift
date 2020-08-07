@@ -16,6 +16,21 @@ extension String {
     }
 }
 
+extension Int {
+    func dialPadValue() -> String {
+        switch self {
+        case 0...9:
+            return "\(self)"
+        case 10:
+            return "*"
+        case 11:
+            return "#"
+        default:
+            return ""
+        }
+    }
+}
+
 class DialPadViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var oneButton: UIButton!
@@ -39,39 +54,31 @@ class DialPadViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        keypad = [oneButton,twoButton,threeButton,fourButton,fiveButton,sixButton,sevenButton,eightButton,nineButton,starButton,gridButton,zeroButton]
+        keypad = [oneButton, twoButton, threeButton, fourButton, fiveButton, sixButton, sevenButton, eightButton, nineButton, starButton, gridButton, zeroButton, callButton, deleteButton]
         disableComponentsIfFieldIsEmpty()
     }
     
     
     override func viewDidLayoutSubviews() {
-        oneButton.layer.cornerRadius = oneButton.bounds.size.height * 0.5
-        twoButton.layer.cornerRadius = oneButton.frame.size.height * 0.5
-        threeButton.layer.cornerRadius = oneButton.frame.size.height * 0.5
-        fourButton.layer.cornerRadius = oneButton.frame.size.height * 0.5
-        fiveButton.layer.cornerRadius = oneButton.frame.size.height * 0.5
-        sixButton.layer.cornerRadius = oneButton.frame.size.height * 0.5
-        sevenButton.layer.cornerRadius = oneButton.frame.size.height * 0.5
-        eightButton.layer.cornerRadius = oneButton.frame.size.height / 2
-        nineButton.layer.cornerRadius = oneButton.frame.size.height * 0.5
-        starButton.layer.cornerRadius = oneButton.frame.size.height * 0.5
-        zeroButton.layer.cornerRadius = oneButton.frame.size.height * 0.5
-        gridButton.layer.cornerRadius = oneButton.frame.size.height * 0.5
-        callButton.layer.cornerRadius = oneButton.frame.size.height * 0.5
+        for btn in keypad {
+            btn.layer.cornerRadius = btn.frame.size.height * 0.5
+        }
         entryField.inputView = UIView()
         
         disableComponentsIfFieldIsEmpty()
     }
     
     @IBAction func tapOnDialPad(_ sender: UIButton) {
-        entryField.insertText(sender.accessibilityLabel ?? "")
+        entryField.insertText(sender.tag.dialPadValue())
+        
         if let selectedRange = entryField.selectedTextRange {
             let cursorPosition = entryField.offset(from: entryField.beginningOfDocument, to: selectedRange.start)
             if cursorPosition == entryField.text!.count {
                 entryField.endEditing(true)
             }
         }
-        AudioServicesPlaySystemSound(SystemSoundID(sender.accessibilityLabel!.soundValue()))
+        
+        AudioServicesPlaySystemSound(SystemSoundID(sender.tag.dialPadValue().soundValue()))
     }
     
     
@@ -108,40 +115,41 @@ class DialPadViewController: UIViewController, UITextFieldDelegate {
     @IBAction func longPressed(_ sender: UILongPressGestureRecognizer) {
         
         let button = sender.delegate as! UIButton
+        print("huh")
         
         if sender.state == .began {
-            switch button.accessibilityLabel {
-            case "del":
+            switch button.tag {
+            case 12:
                 tapOnDelete(button)
             default:
                 tapOnDialPad(button)
             }
         }
         
-        AudioServicesPlaySystemSound(SystemSoundID(button.accessibilityLabel!.soundValue()))
-        if button.accessibilityLabel == "del"{
+        AudioServicesPlaySystemSound(SystemSoundID(button.tag.dialPadValue().soundValue()))
+        if button.tag == 12{
             tapOnDelete(button)
         }
         
         if sender.state == .ended {
-            switch button.accessibilityLabel {
-            case "*":
+            switch button.tag {
+            case 10:
                 if entryField.text?.count != 1 {
                     tapOnDelete(button)
                     entryField.insertText(",")
                 }
-            case "0":
+            case 0:
                 tapOnDelete(button)
                 entryField.insertText("+")
-            case "#":
+            case 11:
                 if entryField.text?.count != 1 {
                     tapOnDelete(button)
                     entryField.insertText(";")
                 }
-            case "1":
+            case 1:
                 tapOnDelete(button)
                 popSingleActionAlert("Cannot Call Voicemail", "This application is not authorized to make voicemail calls.")
-            case "del":
+            case 12:
                 tapOnDelete(button)
             default:
                 print("Long press completed")

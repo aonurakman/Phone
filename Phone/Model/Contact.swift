@@ -10,6 +10,8 @@ import UIKit
 //import AVFoundation
 
 struct Contact {
+    static var contactsCatalog: Dictionary<Int,Contact> = Dictionary()
+    let id: Int
     var image: UIImage?
     var name: String?
     var surname: String?
@@ -44,4 +46,8 @@ struct Contact {
     var favorited: Bool
     var blocked: Bool
     var emergencyContact: (Bool, String)
+    
+    static subscript(id: Int) -> Contact? {
+        return contactsCatalog[id]
+    }
 }
