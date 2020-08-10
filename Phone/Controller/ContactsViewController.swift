@@ -46,6 +46,7 @@ class ContactsViewController: UIViewController {
     
     
     @IBAction func contactAddClicked(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "moveToAddContact", sender: self)
         
     }
     

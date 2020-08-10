@@ -10,10 +10,20 @@ import UIKit
 
 class FavoritesViewController: UIViewController {
 
+    @IBOutlet weak var bigView: UIView!
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        scrollView.addSubview(bigView)
+        bigView.translatesAutoresizingMaskIntoConstraints = false
+        bigView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
+        bigView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true
+        bigView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
+        bigView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
+        
+        bigView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
     }
     
 
