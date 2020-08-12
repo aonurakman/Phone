@@ -79,13 +79,13 @@ class FavoritesViewController: UIViewController {
     @IBAction func addFieldTapped(_ sender: UIButton) {
         var objectToBeCopied: UIView = phoneFieldStack
         for element in sender.superview?.superview?.subviews ?? [] {
-            if element.tag == 2 {
+            if (element.tag < 111) && (element.tag > 99) {
                 objectToBeCopied = element
             }
         }
         let fieldToBeAdded = try? (objectToBeCopied.copyObject() as! UIStackView)
         fieldToBeAdded?.isHidden = false
-        fieldToBeAdded?.tag = 0
+        fieldToBeAdded?.tag = 2
         let gesture = UITapGestureRecognizer(target: self, action: #selector (self.deleteFieldFieldTapped))
         for sub in fieldToBeAdded?.subviews ?? [] {
             if sub.tag == 1 {
@@ -107,13 +107,101 @@ class FavoritesViewController: UIViewController {
     }
     
     @IBAction func addFieldClicked(_ sender: UIButton) {
-        hiddenSearch: for element in basicInfoStack.subviews ?? [] {
+        hiddenSearch: for element in basicInfoStack.subviews {
             if element.tag == 3 {
                 element.isHidden = false
+                element.tag = 0
                 break
             }
         }
     }
+    
+    
+    @IBAction func savePressed(_ sender: UIBarButtonItem) {
+        var newContact = Contact(id: 0, favorited: false, blocked: false, emergencyContact: (false, ""))
+        var bigStack: UIStackView?
+        for stack in bigView.subviews {
+            bigStack = stack as? UIStackView
+        }
+        for stack in bigStack?.subviews ?? [] {
+            print(stack.tag)
+            switch stack.tag {
+            case 100:
+                var basicInfo: Array<String> = []
+                for element in stack.subviews {
+                    let field = element as! UITextField
+                    basicInfo.append(field.text ?? "")
+                }
+                newContact.prefix = basicInfo[0]
+                newContact.name = basicInfo[1]
+                newContact.phoneticFirstName = basicInfo[2]
+                newContact.pronunciationFirstName = basicInfo[3]
+                newContact.middleName = basicInfo[4]
+                newContact.phoneticMiddleName = basicInfo[5]
+                newContact.surname = basicInfo[6]
+                newContact.phoneticLastName = basicInfo[7]
+                newContact.maidenName = basicInfo[8]
+                newContact.suffix = basicInfo[9]
+                newContact.nickname = basicInfo[10]
+                newContact.jobTitle = basicInfo[11]
+                newContact.department = basicInfo[12]
+                newContact.company = basicInfo[13]
+                newContact.phoneticCompanyName = basicInfo[14]
+                newContact.pronunciationFirstName = basicInfo[15]
+            case 101:
+                newContact.ringtone = "Default"
+            case 102:
+                newContact.textTone = "Default"
+            case 103:
+                for element in stack.subviews {
+                    if element.tag == 2 {
+                        let field = element as! UITextView
+                        newContact.notes = field.text
+                    }
+                }
+            case 104...112:
+                var data: Array<String> = []
+                for element in stack.subviews {
+                    if element.tag == 2 {
+                        for sub in element.subviews {
+                            if sub is UITextField {
+                                let field = sub as! UITextField
+                                data.append(field.text ?? "nah")
+                            }
+                        }
+                    }
+                }
+                print(data)
+                switch stack.tag {
+                case 104:
+                    newContact.phoneNumbers = data
+                case 105:
+                    newContact.emails = data
+                case 106:
+                    newContact.url = data
+                case 107:
+                    newContact.addresses = data
+                case 108:
+                    newContact.birthdays = data
+                case 109:
+                    newContact.dates = data
+                case 110:
+                    newContact.related = data
+                case 111:
+                    newContact.social = data
+                case 112:
+                    newContact.instantMessage = data
+                default:
+                    print("Error occurred")
+                }
+            default:
+                print("Error occurred!")
+            }
+        }
+        newContact.addToCatalog()
+        print(Contact.contactsCatalog)
+    }
+    
     
     
 }

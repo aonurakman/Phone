@@ -824,7 +824,7 @@ Cg
                                                         </subviews>
                                                         <color key="backgroundColor" name="backgroundColor"/>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="T5z-br-83F" userLabel="basicInfoStack">
+                                                    <stackView opaque="NO" tag="100" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="T5z-br-83F" userLabel="basicInfoStack">
                                                         <rect key="frame" x="0.0" y="239" width="165" height="120"/>
                                                         <subviews>
                                                             <textField hidden="YES" opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Prefix" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="y9H-ps-22Q">
@@ -973,7 +973,7 @@ Cg
                                                             </textField>
                                                         </subviews>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="hqs-U0-1gV" userLabel="phoneNrStack">
+                                                    <stackView opaque="NO" tag="104" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="hqs-U0-1gV" userLabel="phoneNrStack">
                                                         <rect key="frame" x="0.0" y="399" width="165" height="40"/>
                                                         <subviews>
                                                             <stackView hidden="YES" opaque="NO" tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fq6-iX-7hF" userLabel="phoneFieldStack">
@@ -1043,7 +1043,7 @@ Cg
                                                             <constraint firstItem="nzs-aE-V9v" firstAttribute="leading" secondItem="hqs-U0-1gV" secondAttribute="leading" id="ldc-16-gl7"/>
                                                         </constraints>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="B7y-Tu-dpv" userLabel="mailStack">
+                                                    <stackView opaque="NO" tag="105" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="B7y-Tu-dpv" userLabel="mailStack">
                                                         <rect key="frame" x="0.0" y="479" width="165" height="40"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HmV-br-C6f" userLabel="addMailStack">
@@ -1113,7 +1113,7 @@ Cg
                                                             <constraint firstItem="EOq-8q-Pc4" firstAttribute="leading" secondItem="B7y-Tu-dpv" secondAttribute="leading" id="4VO-25-c7d"/>
                                                         </constraints>
                                                     </stackView>
-                                                    <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wD6-Ph-cbS">
+                                                    <button opaque="NO" tag="101" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wD6-Ph-cbS" userLabel="Ringtone    Default">
                                                         <rect key="frame" x="0.0" y="559" width="165" height="40"/>
                                                         <color key="backgroundColor" name="backgroundColor"/>
                                                         <constraints>
@@ -1138,7 +1138,7 @@ Cg
                                                             </attributedString>
                                                         </state>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleAspectFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DRU-8a-0QT">
+                                                    <button opaque="NO" tag="102" contentMode="scaleAspectFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DRU-8a-0QT" userLabel="Text Tone    Default">
                                                         <rect key="frame" x="0.0" y="639" width="165" height="40"/>
                                                         <color key="backgroundColor" name="backgroundColor"/>
                                                         <constraints>
@@ -1163,7 +1163,7 @@ Cg
                                                             </attributedString>
                                                         </state>
                                                     </button>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="7DJ-gK-tve" userLabel="urlStack">
+                                                    <stackView opaque="NO" tag="106" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="7DJ-gK-tve" userLabel="urlStack">
                                                         <rect key="frame" x="0.0" y="719" width="165" height="40"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cvp-4H-8JY" userLabel="addUrlStack">
@@ -1233,7 +1233,7 @@ Cg
                                                             <constraint firstAttribute="trailing" secondItem="GrA-Ih-Dj6" secondAttribute="trailing" id="oKv-uK-oCP"/>
                                                         </constraints>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bEg-Vr-wKD" userLabel="addressStack">
+                                                    <stackView opaque="NO" tag="107" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bEg-Vr-wKD" userLabel="addressStack">
                                                         <rect key="frame" x="0.0" y="799" width="165" height="40"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9dz-y3-cSx" userLabel="addAddressStack">
@@ -1303,7 +1303,7 @@ Cg
                                                             <constraint firstAttribute="trailing" secondItem="PVR-GK-QOg" secondAttribute="trailing" id="f01-Ez-HYw"/>
                                                         </constraints>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="pJa-Il-vJp" userLabel="bdayStack">
+                                                    <stackView opaque="NO" tag="108" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="pJa-Il-vJp" userLabel="bdayStack">
                                                         <rect key="frame" x="0.0" y="879" width="165" height="40"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Ny-v1-cxv" userLabel="addBdayStack">
@@ -1373,7 +1373,7 @@ Cg
                                                             <constraint firstItem="AJc-nn-daX" firstAttribute="leading" secondItem="pJa-Il-vJp" secondAttribute="leading" id="Yrg-Uw-Ghs"/>
                                                         </constraints>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="GEs-2Z-1e1" userLabel="dateStack">
+                                                    <stackView opaque="NO" tag="109" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="GEs-2Z-1e1" userLabel="dateStack">
                                                         <rect key="frame" x="0.0" y="959" width="165" height="40"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zvH-Ir-poP" userLabel="addDateStack">
@@ -1443,7 +1443,7 @@ Cg
                                                             <constraint firstAttribute="trailing" secondItem="xh0-lm-AcZ" secondAttribute="trailing" id="XL9-8i-nL6"/>
                                                         </constraints>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="5wO-Ah-Hb9" userLabel="relatedStack">
+                                                    <stackView opaque="NO" tag="110" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="5wO-Ah-Hb9" userLabel="relatedStack">
                                                         <rect key="frame" x="0.0" y="1039" width="165" height="40"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bL1-bQ-G5I" userLabel="addRelatedStack">
@@ -1502,7 +1502,7 @@ Cg
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="uyW-1v-mNr">
                                                                         <rect key="frame" x="140" y="0.0" width="25" height="40"/>
                                                                         <color key="backgroundColor" name="backgroundColor"/>
-                                                                        <nil key="textColor"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                         <textInputTraits key="textInputTraits"/>
                                                                     </textField>
                                                                 </subviews>
@@ -1513,7 +1513,7 @@ Cg
                                                             <constraint firstAttribute="trailing" secondItem="2eg-lJ-hjk" secondAttribute="trailing" id="pQg-sE-Xip"/>
                                                         </constraints>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Hgw-CR-fHQ" userLabel="socialStack">
+                                                    <stackView opaque="NO" tag="111" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Hgw-CR-fHQ" userLabel="socialStack">
                                                         <rect key="frame" x="0.0" y="1119" width="165" height="40"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Vi-M6-yBv" userLabel="addSocialStack">
@@ -1583,7 +1583,7 @@ Cg
                                                             <constraint firstAttribute="trailing" secondItem="908-Zb-ge4" secondAttribute="trailing" id="tVm-zc-gef"/>
                                                         </constraints>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="mTv-tn-cBI" userLabel="instantStack">
+                                                    <stackView opaque="NO" tag="112" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="mTv-tn-cBI" userLabel="instantStack">
                                                         <rect key="frame" x="0.0" y="1199" width="165" height="40"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CBz-4C-48w" userLabel="addInstantStack">
@@ -1653,7 +1653,7 @@ Cg
                                                             <constraint firstItem="0KD-1t-6K8" firstAttribute="leading" secondItem="mTv-tn-cBI" secondAttribute="leading" id="5Oo-2m-DWZ"/>
                                                         </constraints>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="N9m-dq-q0l" userLabel="notesStack">
+                                                    <stackView opaque="NO" tag="104" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="N9m-dq-q0l" userLabel="notesStack">
                                                         <rect key="frame" x="0.0" y="1279" width="165" height="100"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C0J-r3-FXc">
@@ -1666,7 +1666,7 @@ Cg
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5po-d9-0ZW">
+                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="2" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5po-d9-0ZW">
                                                                 <rect key="frame" x="0.0" y="20" width="165" height="80"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                 <constraints>
@@ -1759,7 +1759,11 @@ Cg
                     </view>
                     <navigationItem key="navigationItem" id="H7c-Ig-JgJ">
                         <barButtonItem key="leftBarButtonItem" image="plus" catalog="system" id="AH3-8l-49p"/>
-                        <barButtonItem key="rightBarButtonItem" title="Edit" id="Jkq-Al-WCt"/>
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="Jkq-Al-WCt">
+                            <connections>
+                                <action selector="savePressed:" destination="LtS-zf-gvj" id="oEJ-CR-V12"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>

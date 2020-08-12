@@ -20,6 +20,8 @@
 		CA10030224D96B0A00CE5880 /* ContactDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA10030124D96B0A00CE5880 /* ContactDetailsViewController.swift */; };
 		CA10030424D96B2F00CE5880 /* Edit&AddContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA10030324D96B2F00CE5880 /* Edit&AddContactViewController.swift */; };
 		CA10030824D97C2700CE5880 /* SecondaryStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA10030724D97C2700CE5880 /* SecondaryStoryboard.storyboard */; };
+		CA44002824E4126100A822AF /* DBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA44002724E4126100A822AF /* DBHelper.swift */; };
+		CA44002B24E41D6600A822AF /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CA44002A24E41D4A00A822AF /* libsqlite3.tbd */; };
 		CAEF6F4D24DC3C2700F7D028 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEF6F4C24DC3C2700F7D028 /* Contact.swift */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +41,8 @@
 		CA10030124D96B0A00CE5880 /* ContactDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailsViewController.swift; sourceTree = "<group>"; };
 		CA10030324D96B2F00CE5880 /* Edit&AddContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Edit&AddContactViewController.swift"; sourceTree = "<group>"; };
 		CA10030724D97C2700CE5880 /* SecondaryStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SecondaryStoryboard.storyboard; sourceTree = "<group>"; };
+		CA44002724E4126100A822AF /* DBHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBHelper.swift; sourceTree = "<group>"; };
+		CA44002A24E41D4A00A822AF /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		CAEF6F4C24DC3C2700F7D028 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -47,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA44002B24E41D6600A822AF /* libsqlite3.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,6 +63,7 @@
 			children = (
 				CA1002E424D93D3200CE5880 /* Phone */,
 				CA1002E324D93D3200CE5880 /* Products */,
+				CA44002924E41D4A00A822AF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -80,6 +86,7 @@
 				CA1002EE24D93D3300CE5880 /* Assets.xcassets */,
 				CA1002F024D93D3300CE5880 /* LaunchScreen.storyboard */,
 				CA1002F324D93D3300CE5880 /* Info.plist */,
+				CA44002724E4126100A822AF /* DBHelper.swift */,
 			);
 			path = Phone;
 			sourceTree = "<group>";
@@ -105,6 +112,14 @@
 				CA10030724D97C2700CE5880 /* SecondaryStoryboard.storyboard */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		CA44002924E41D4A00A822AF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CA44002A24E41D4A00A822AF /* libsqlite3.tbd */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		CAEF6F4B24DC3C0900F7D028 /* Model */ = {
@@ -187,6 +202,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA44002824E4126100A822AF /* DBHelper.swift in Sources */,
 				CA1002EA24D93D3200CE5880 /* DialPadViewController.swift in Sources */,
 				CA1002E624D93D3200CE5880 /* AppDelegate.swift in Sources */,
 				CAEF6F4D24DC3C2700F7D028 /* Contact.swift in Sources */,

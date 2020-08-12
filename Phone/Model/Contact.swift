@@ -16,19 +16,18 @@ struct Contact {
     var name: String?
     var surname: String?
     var company: String?
-    var phoneNumbers: Dictionary<String,String>?
-    var emails: Dictionary<String,String>
+    var phoneNumbers: Array<String>?
+    var emails: Array<String>?
     var emergencyByPass: Bool?
     var ringtone: String?
-    var ringVibration: String?
     var textTone: String?
-    var textVibration: String?
-    var url: Dictionary<String,String>?
-    var addresses: Dictionary<String,String>?
-    var birthdays: Dictionary<String,Date>?
-    var related: Dictionary<String,String>?
-    var social: Dictionary<String,String>?
-    var instantMessage: Dictionary<String,String>?
+    var url: Array<String>?
+    var addresses: Array<String>?
+    var birthdays: Array<String>?
+    var dates: Array<String>?
+    var related: Array<String>?
+    var social: Array<String>?
+    var instantMessage: Array<String>?
     var notes: String?
     var prefix: String?
     var phoneticFirstName: String?
@@ -36,7 +35,7 @@ struct Contact {
     var middleName: String?
     var phoneticMiddleName: String?
     var phoneticLastName: String?
-    var maidenName: String
+    var maidenName: String?
     var suffix: String?
     var nickname: String?
     var jobTitle: String?
@@ -49,5 +48,9 @@ struct Contact {
     
     static subscript(id: Int) -> Contact? {
         return contactsCatalog[id]
+    }
+    
+    func addToCatalog(){
+        Contact.contactsCatalog[self.id] = self
     }
 }
