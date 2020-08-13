@@ -11,7 +11,7 @@ import UIKit
 
 struct Contact {
     static var contactsCatalog: Dictionary<Int,Contact> = Dictionary()
-    let id: Int
+    var id: Int
     var image: UIImage?
     var name: String?
     var surname: String?
@@ -50,7 +50,8 @@ struct Contact {
         return contactsCatalog[id]
     }
     
-    func addToCatalog(){
+    mutating func addToCatalog(){
+        self.id = (Contact.contactsCatalog.keys.max() ?? 0) + 1
         Contact.contactsCatalog[self.id] = self
     }
 }
