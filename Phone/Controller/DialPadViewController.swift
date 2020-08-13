@@ -9,28 +9,6 @@
 import UIKit
 import AVFoundation
 
-extension String {
-    func soundValue() -> Int{
-        let soundDictionary: Dictionary<String,Int> = ["0":1200, "1":1201, "2":1202, "3":1203, "4":1204, "5":1205, "6":1206, "7":1207, "8":1208, "9":1209, "*": 1210, "#": 1211]
-        return soundDictionary[self] ?? 0
-    }
-}
-
-extension Int {
-    func dialPadValue() -> String {
-        switch self {
-        case 0...9:
-            return "\(self)"
-        case 10:
-            return "*"
-        case 11:
-            return "#"
-        default:
-            return ""
-        }
-    }
-}
-
 class DialPadViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var oneButton: UIButton!
@@ -51,16 +29,15 @@ class DialPadViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var addNrButton: UIButton!
     
     var keypad: Array<UIButton> = []
-    
     var dbHelper = DBHelper()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        keypad = [oneButton, twoButton, threeButton, fourButton, fiveButton, sixButton, sevenButton, eightButton, nineButton, starButton, gridButton, zeroButton, callButton, deleteButton]
-        disableComponentsIfFieldIsEmpty()
         dbHelper.getSavedContactsForFirstLaunch()
+        
+        keypad = [oneButton, twoButton, threeButton, fourButton, fiveButton, sixButton, sevenButton, eightButton, nineButton, starButton, gridButton, zeroButton, callButton, deleteButton]
+        disableComponentsNothingDialed()
     }
-    
     
     override func viewDidLayoutSubviews() {
         for btn in keypad {
@@ -68,8 +45,10 @@ class DialPadViewController: UIViewController, UITextFieldDelegate {
         }
         entryField.inputView = UIView()
         
-        disableComponentsIfFieldIsEmpty()
+        disableComponentsNothingDialed()
     }
+    
+    
     
     @IBAction func tapOnDialPad(_ sender: UIButton) {
         entryField.insertText(sender.tag.dialPadValue())
@@ -103,7 +82,7 @@ class DialPadViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-    func disableComponentsIfFieldIsEmpty(){
+    func disableComponentsNothingDialed(){
         let shouldDisable: Bool = entryField.text == ""
         deleteButton.tintColor = shouldDisable ? UIColor.clear : UIColor.systemGray4
         addNrButton.setTitleColor(shouldDisable ? UIColor.clear : UIColor.link, for: UIControl.State.normal)
@@ -159,12 +138,5 @@ class DialPadViewController: UIViewController, UITextFieldDelegate {
             }
         }
     }
-    
-    func popSingleActionAlert(_ title: String, _ message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Done", style: .default, handler: nil))
-        self.present(alert, animated: true)
-    }
-    
 }
 

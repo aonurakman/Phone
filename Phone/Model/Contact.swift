@@ -16,18 +16,18 @@ struct Contact {
     var name: String?
     var surname: String?
     var company: String?
-    var phoneNumbers: Array<String>?
-    var emails: Array<String>?
+    var phoneNumbers: Array<String>
+    var emails: Array<String>
     var emergencyByPass: Bool?
     var ringtone: String?
     var textTone: String?
-    var url: Array<String>?
-    var addresses: Array<String>?
-    var birthdays: Array<String>?
-    var dates: Array<String>?
-    var related: Array<String>?
-    var social: Array<String>?
-    var instantMessage: Array<String>?
+    var url: Array<String>
+    var addresses: Array<String>
+    var birthdays: Array<String>
+    var dates: Array<String>
+    var related: Array<String>
+    var social: Array<String>
+    var instantMessage: Array<String>
     var notes: String?
     var prefix: String?
     var phoneticFirstName: String?
@@ -52,18 +52,18 @@ struct Contact {
         self.name = name
         self.surname = surname
         self.company = company
-        self.phoneNumbers = phoneNumbers
-        self.emails = emails
+        self.phoneNumbers = phoneNumbers ?? []
+        self.emails = emails ?? []
         self.emergencyByPass = emergencyByPass
         self.ringtone = ringtone
         self.textTone = textTone
-        self.url = url
-        self.addresses = addresses
-        self.birthdays = birthdays
-        self.dates = dates
-        self.related = related
-        self.social = social
-        self.instantMessage = instantMessage
+        self.url = url ?? []
+        self.addresses = addresses ?? []
+        self.birthdays = birthdays ?? []
+        self.dates = dates ?? []
+        self.related = related ?? []
+        self.social = social ?? []
+        self.instantMessage = instantMessage ?? []
         self.notes = notes
         self.prefix = prefix
         self.phoneticFirstName = phoneticFirstName
@@ -95,13 +95,14 @@ struct Contact {
     
     func introduceSelf(){
         print()
-        print("---ID:---")
+        print(self)
+        /*print("---ID:---")
         print(self.id)
         print("---NAME:---")
         print((self.name==nil || self.name?.count==0) ? "nil" : self.name!)
         print("---SURNAME:---")
         print((self.surname==nil || self.surname?.count==0) ? "nil" : self.surname!)
         print("---COMPANY:---")
-        print((self.company==nil || self.company?.count==0) ? "nil" : self.company!)
+        print((self.company==nil || self.company?.count==0) ? "nil" : self.company!)*/
     }
 }
