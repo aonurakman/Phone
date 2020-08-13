@@ -1694,7 +1694,7 @@ Cg
                                                         </constraints>
                                                         <state key="normal" title="   add field"/>
                                                         <connections>
-                                                            <action selector="addFieldClicked:" destination="LtS-zf-gvj" eventType="touchUpInside" id="zD5-tD-ctv"/>
+                                                            <action selector="addNewBasicInfoField:" destination="LtS-zf-gvj" eventType="touchUpInside" id="zD5-tD-ctv"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -1758,14 +1758,10 @@ Cg
                         <viewLayoutGuide key="safeArea" id="Yej-T1-Gu4"/>
                     </view>
                     <navigationItem key="navigationItem" id="H7c-Ig-JgJ">
-                        <barButtonItem key="leftBarButtonItem" image="plus" catalog="system" id="AH3-8l-49p">
-                            <connections>
-                                <action selector="createDB:" destination="LtS-zf-gvj" id="CXx-ne-09W"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="leftBarButtonItem" image="plus" catalog="system" id="AH3-8l-49p"/>
                         <barButtonItem key="rightBarButtonItem" title="Edit" id="Jkq-Al-WCt">
                             <connections>
-                                <action selector="savePressed:" destination="LtS-zf-gvj" id="oEJ-CR-V12"/>
+                                <action selector="saveTapped:" destination="LtS-zf-gvj" id="oEJ-CR-V12"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

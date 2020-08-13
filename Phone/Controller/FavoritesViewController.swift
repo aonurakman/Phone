@@ -74,14 +74,6 @@ class FavoritesViewController: UIViewController {
         bigView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
     }
     
-    @IBAction func createDB(_ sender: UIBarButtonItem) {
-        dbHelper.openDatabase()
-        dbHelper.createTable()
-    }
-    
-    
-
-    
     @IBAction func addFieldTapped(_ sender: UIButton) {
         var objectToBeCopied: UIView = phoneFieldStack
         for element in sender.superview?.superview?.subviews ?? [] {
@@ -112,7 +104,7 @@ class FavoritesViewController: UIViewController {
         view.superview?.removeFromSuperview()
     }
     
-    @IBAction func addFieldClicked(_ sender: UIButton) {
+    @IBAction func addNewBasicInfoField(_ sender: UIButton) {
         hiddenSearch: for element in basicInfoStack.subviews {
             if element.tag == 3 {
                 element.isHidden = false
@@ -123,7 +115,7 @@ class FavoritesViewController: UIViewController {
     }
     
     
-    @IBAction func savePressed(_ sender: UIBarButtonItem) {
+    @IBAction func saveTapped(_ sender: UIBarButtonItem) {
         var newContact = Contact(id: 0, favorited: false, blocked: false, emergencyContact: (false, ""))
         var bigStack: UIStackView?
         for stack in bigView.subviews {
@@ -172,7 +164,7 @@ class FavoritesViewController: UIViewController {
                         for sub in element.subviews {
                             if sub is UITextField {
                                 let field = sub as! UITextField
-                                data.append(field.text ?? "nah")
+                                data.append(field.text ?? "")
                             }
                         }
                     }
