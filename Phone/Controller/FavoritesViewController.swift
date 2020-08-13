@@ -57,7 +57,7 @@ class FavoritesViewController: UIViewController {
     @IBOutlet weak var phoneFieldStack: UIStackView!
     
     
-    
+    var dbHelper = DBHelper()
     
     
     
@@ -73,6 +73,12 @@ class FavoritesViewController: UIViewController {
         
         bigView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
     }
+    
+    @IBAction func createDB(_ sender: UIBarButtonItem) {
+        dbHelper.openDatabase()
+        dbHelper.createTable()
+    }
+    
     
 
     
@@ -200,6 +206,8 @@ class FavoritesViewController: UIViewController {
         }
         newContact.addToCatalog()
         print(Contact.contactsCatalog)
+        dbHelper.insert(newContact: newContact)
+        print(dbHelper.read()[0])
     }
     
     

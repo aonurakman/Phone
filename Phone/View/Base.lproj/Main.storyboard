@@ -1758,7 +1758,11 @@ Cg
                         <viewLayoutGuide key="safeArea" id="Yej-T1-Gu4"/>
                     </view>
                     <navigationItem key="navigationItem" id="H7c-Ig-JgJ">
-                        <barButtonItem key="leftBarButtonItem" image="plus" catalog="system" id="AH3-8l-49p"/>
+                        <barButtonItem key="leftBarButtonItem" image="plus" catalog="system" id="AH3-8l-49p">
+                            <connections>
+                                <action selector="createDB:" destination="LtS-zf-gvj" id="CXx-ne-09W"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Edit" id="Jkq-Al-WCt">
                             <connections>
                                 <action selector="savePressed:" destination="LtS-zf-gvj" id="oEJ-CR-V12"/>
@@ -1860,6 +1864,11 @@ Cg
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="selectedIndex">
+                            <integer key="value" value="3"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="kEG-yc-2hL" kind="relationship" relationship="viewControllers" id="Dgm-0P-Qbs"/>
                         <segue destination="Bym-eE-u6O" kind="relationship" relationship="viewControllers" id="Zfd-63-Zs6"/>
