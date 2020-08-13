@@ -116,7 +116,8 @@ class FavoritesViewController: UIViewController {
     
     
     @IBAction func saveTapped(_ sender: UIBarButtonItem) {
-        var newContact = Contact(id: 0, favorited: false, blocked: false, emergencyContact: (false, ""))
+        var newContact = Contact(id: nil, image: nil, name: nil, surname: nil, company: nil, phoneNumbers: nil, emails: nil, emergencyByPass: false, ringtone: nil, textTone: nil, url: nil, addresses: nil, birthdays: nil, dates: nil, related: nil, social: nil, instantMessage: nil, notes: nil, prefix: nil, phoneticFirstName: nil, pronunciationFirstName: nil, middleName: nil, phoneticMiddleName: nil, phoneticLastName: nil, maidenName: nil, suffix: nil, nickname: nil, jobTitle: nil, department: nil, phoneticCompanyName: nil, linkedContacts: nil, favorited: false, blocked: false, emergencyContact: (false, ""))
+        
         var bigStack: UIStackView?
         for stack in bigView.subviews {
             bigStack = stack as? UIStackView
@@ -197,9 +198,7 @@ class FavoritesViewController: UIViewController {
             }
         }
         newContact.addToCatalog()
-        print(Contact.contactsCatalog)
         dbHelper.insert(newContact: newContact)
-        print(dbHelper.read()[0])
     }
     
     

@@ -82,14 +82,14 @@
 			children = (
 				CA1002E524D93D3200CE5880 /* AppDelegate.swift */,
 				CA1002E724D93D3200CE5880 /* SceneDelegate.swift */,
+				CA44002724E4126100A822AF /* DBHelper.swift */,
+				CA41342524E55B0F00DE3EFA /* phoneAppManager.swift */,
 				CAEF6F4B24DC3C0900F7D028 /* Model */,
 				CA10030624D96C1200CE5880 /* View */,
 				CA10030524D96B5100CE5880 /* Controller */,
 				CA1002EE24D93D3300CE5880 /* Assets.xcassets */,
 				CA1002F024D93D3300CE5880 /* LaunchScreen.storyboard */,
 				CA1002F324D93D3300CE5880 /* Info.plist */,
-				CA44002724E4126100A822AF /* DBHelper.swift */,
-				CA41342524E55B0F00DE3EFA /* phoneAppManager.swift */,
 			);
 			path = Phone;
 			sourceTree = "<group>";

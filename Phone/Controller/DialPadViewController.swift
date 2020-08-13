@@ -52,10 +52,13 @@ class DialPadViewController: UIViewController, UITextFieldDelegate {
     
     var keypad: Array<UIButton> = []
     
+    var dbHelper = DBHelper()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         keypad = [oneButton, twoButton, threeButton, fourButton, fiveButton, sixButton, sevenButton, eightButton, nineButton, starButton, gridButton, zeroButton, callButton, deleteButton]
         disableComponentsIfFieldIsEmpty()
+        dbHelper.getSavedContactsForFirstLaunch()
     }
     
     

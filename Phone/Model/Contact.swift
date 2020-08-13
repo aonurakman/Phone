@@ -46,12 +46,62 @@ struct Contact {
     var blocked: Bool
     var emergencyContact: (Bool, String)
     
+    init(id: Int?, image: UIImage?, name: String?, surname: String?, company: String?, phoneNumbers: Array<String>?, emails: Array<String>?, emergencyByPass: Bool, ringtone: String?, textTone: String?, url: Array<String>?, addresses: Array<String>?, birthdays: Array<String>?, dates: Array<String>?, related: Array<String>?, social: Array<String>?, instantMessage: Array<String>?, notes: String?, prefix: String?, phoneticFirstName: String?, pronunciationFirstName: String?, middleName: String?, phoneticMiddleName: String?, phoneticLastName: String?, maidenName: String?, suffix: String?, nickname: String?, jobTitle: String?, department: String?, phoneticCompanyName: String?, linkedContacts: Dictionary<String, Contact>?, favorited: Bool, blocked: Bool, emergencyContact: (Bool, String)) {
+        self.id = id ?? ((Contact.contactsCatalog.keys.max() ?? 0) + 1)
+        self.image = image
+        self.name = name
+        self.surname = surname
+        self.company = company
+        self.phoneNumbers = phoneNumbers
+        self.emails = emails
+        self.emergencyByPass = emergencyByPass
+        self.ringtone = ringtone
+        self.textTone = textTone
+        self.url = url
+        self.addresses = addresses
+        self.birthdays = birthdays
+        self.dates = dates
+        self.related = related
+        self.social = social
+        self.instantMessage = instantMessage
+        self.notes = notes
+        self.prefix = prefix
+        self.phoneticFirstName = phoneticFirstName
+        self.pronunciationFirstName = pronunciationFirstName
+        self.middleName = middleName
+        self.phoneticMiddleName = phoneticMiddleName
+        self.phoneticLastName = phoneticLastName
+        self.maidenName = maidenName
+        self.suffix = suffix
+        self.nickname = nickname
+        self.jobTitle = jobTitle
+        self.department = department
+        self.phoneticCompanyName = phoneticCompanyName
+        self.linkedContacts = linkedContacts
+        self.favorited = favorited
+        self.blocked = blocked
+        self.emergencyContact = emergencyContact
+    }
+    
+
+    
     static subscript(id: Int) -> Contact? {
         return contactsCatalog[id]
     }
     
     mutating func addToCatalog(){
-        self.id = (Contact.contactsCatalog.keys.max() ?? 0) + 1
         Contact.contactsCatalog[self.id] = self
+    }
+    
+    func introduceSelf(){
+        print()
+        print("---ID:---")
+        print(self.id)
+        print("---NAME:---")
+        print((self.name==nil || self.name?.count==0) ? "nil" : self.name!)
+        print("---SURNAME:---")
+        print((self.surname==nil || self.surname?.count==0) ? "nil" : self.surname!)
+        print("---COMPANY:---")
+        print((self.company==nil || self.company?.count==0) ? "nil" : self.company!)
     }
 }
