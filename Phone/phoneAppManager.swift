@@ -1,5 +1,5 @@
 //
-//  phoneAppManager.swift
+//  PhoneAppManager.swift
 //  Phone
 //
 //  Created by protel on 13.08.2020.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct phoneAppManager {
+struct PhoneAppManager {
     
     
     

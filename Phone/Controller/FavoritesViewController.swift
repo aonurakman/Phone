@@ -8,26 +8,6 @@
 
 import UIKit
 
-extension NSObject {
-    func copyObject<T:NSObject>() throws -> T? {
-        let data = try NSKeyedArchiver.archivedData(withRootObject:self, requiringSecureCoding:false)
-        return try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? T
-    }
-}
-extension UIViewController { // Required for keyboard dismiss on tap
-    func gestureCreator(){
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer (target: self, action: #selector(UIViewController.dismissKeyboard))
-        tap.cancelsTouchesInView = false
-        view.addGestureRecognizer(tap)
-    }
-    
-    @objc func dismissKeyboard() {
-        view.endEditing(true)
-    }
-}
-
-
-
 class FavoritesViewController: UIViewController {
 
     @IBOutlet weak var bigView: UIView!
@@ -58,7 +38,6 @@ class FavoritesViewController: UIViewController {
     
     
     var dbHelper = DBHelper()
-    
     
     
     override func viewDidLoad() {
