@@ -266,4 +266,31 @@ class DBHelper
         }
         sqlite3_finalize(deleteStatement)
     }
+    
+    func updateContact(contact: Contact){
+        self.deleteByID(id: contact.id)
+        self.insert(newContact: contact)
+    }
+    
+    func refreshDbFromCatalog() {
+        let catalog = Contact.contactsCatalog
+        let deleteStatementStirng = "DELETE FROM contact;"
+        var deleteStatement: OpaquePointer? = nil
+        if sqlite3_prepare_v2(db, deleteStatementStirng, -1, &deleteStatement, nil) == SQLITE_OK {
+            if sqlite3_step(deleteStatement) == SQLITE_DONE {
+                print("Successfully cleared table.")
+            } else {
+                print("Could not delete.")
+            }
+        } else {
+            print("DELETE statement could not be prepared")
+        }
+        sqlite3_finalize(deleteStatement)
+        
+        for key in catalog.keys {
+            if catalog[key] != nil {
+                insert(newContact: catalog[key]!)
+            }
+        }
+    }
 }
