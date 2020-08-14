@@ -9,6 +9,11 @@
 import Foundation
 import SQLite3
 
+enum DataTypeDictionary: Int {
+    case phone = 0, mail = 1, address = 2, url = 3
+    case bday = 4, date = 5, related = 6, social = 7, insMessage = 8
+}
+
 class DBHelper
 {
     init()
@@ -122,39 +127,39 @@ class DBHelper
     
     func gatherAdditionalDataOfNewContact(_ newContact: Contact) {
         for phone in newContact.phoneNumbers {
-            addSecondaryData(id: newContact.id, type: 0, data: phone)
+            addSecondaryData(id: newContact.id, type: DataTypeDictionary.phone.rawValue, data: phone)
         }
         
         for mail in newContact.emails {
-            addSecondaryData(id: newContact.id, type: 1, data: mail)
+            addSecondaryData(id: newContact.id, type: DataTypeDictionary.mail.rawValue, data: mail)
         }
         
         for address in newContact.addresses {
-            addSecondaryData(id: newContact.id, type: 2, data: address)
+            addSecondaryData(id: newContact.id, type: DataTypeDictionary.address.rawValue, data: address)
         }
         
         for url in newContact.url {
-            addSecondaryData(id: newContact.id, type: 3, data: url)
+            addSecondaryData(id: newContact.id, type: DataTypeDictionary.url.rawValue, data: url)
         }
         
         for bday in newContact.birthdays {
-            addSecondaryData(id: newContact.id, type: 4, data: bday)
+            addSecondaryData(id: newContact.id, type: DataTypeDictionary.bday.rawValue, data: bday)
         }
         
         for date in newContact.dates{
-            addSecondaryData(id: newContact.id, type: 5, data: date)
+            addSecondaryData(id: newContact.id, type: DataTypeDictionary.date.rawValue, data: date)
         }
         
         for related in newContact.related {
-            addSecondaryData(id: newContact.id, type: 6, data: related)
+            addSecondaryData(id: newContact.id, type: DataTypeDictionary.related.rawValue, data: related)
         }
         
         for socail in newContact.social {
-            addSecondaryData(id: newContact.id, type: 7, data: socail)
+            addSecondaryData(id: newContact.id, type: DataTypeDictionary.social.rawValue, data: socail)
         }
         
         for insMessage in newContact.instantMessage {
-            addSecondaryData(id: newContact.id, type: 8, data: insMessage)
+            addSecondaryData(id: newContact.id, type: DataTypeDictionary.insMessage.rawValue, data: insMessage)
         }
     }
     
@@ -210,24 +215,24 @@ class DBHelper
         
         if sqlite3_prepare_v2(db, secondaryQueryStatementString, -1, &secondaryQueryStatement, nil) == SQLITE_OK {
             while sqlite3_step(secondaryQueryStatement) == SQLITE_ROW {
-                switch sqlite3_column_int(secondaryQueryStatement, 1) {
-                case 0:
+                switch Int(sqlite3_column_int(secondaryQueryStatement, 1)) {
+                case DataTypeDictionary.phone.rawValue:
                     contacts[Int(sqlite3_column_int(secondaryQueryStatement, 0))]?.phoneNumbers.append(String(describing: String(cString: sqlite3_column_text(secondaryQueryStatement, 2))))
-                case 1:
+                case DataTypeDictionary.mail.rawValue:
                     contacts[Int(sqlite3_column_int(secondaryQueryStatement, 0))]?.emails.append(String(describing: String(cString: sqlite3_column_text(secondaryQueryStatement, 2))))
-                case 2:
+                case DataTypeDictionary.address.rawValue:
                     contacts[Int(sqlite3_column_int(secondaryQueryStatement, 0))]?.addresses.append(String(describing: String(cString: sqlite3_column_text(secondaryQueryStatement, 2))))
-                case 3:
+                case DataTypeDictionary.url.rawValue:
                     contacts[Int(sqlite3_column_int(secondaryQueryStatement, 0))]?.url.append(String(describing: String(cString: sqlite3_column_text(secondaryQueryStatement, 2))))
-                case 4:
+                case DataTypeDictionary.bday.rawValue:
                     contacts[Int(sqlite3_column_int(secondaryQueryStatement, 0))]?.birthdays.append(String(describing: String(cString: sqlite3_column_text(secondaryQueryStatement, 2))))
-                case 5:
+                case DataTypeDictionary.date.rawValue:
                     contacts[Int(sqlite3_column_int(secondaryQueryStatement, 0))]?.dates.append(String(describing: String(cString: sqlite3_column_text(secondaryQueryStatement, 2))))
-                case 6:
+                case DataTypeDictionary.related.rawValue:
                     contacts[Int(sqlite3_column_int(secondaryQueryStatement, 0))]?.related.append(String(describing: String(cString: sqlite3_column_text(secondaryQueryStatement, 2))))
-                case 7:
+                case DataTypeDictionary.social.rawValue:
                     contacts[Int(sqlite3_column_int(secondaryQueryStatement, 0))]?.social.append(String(describing: String(cString: sqlite3_column_text(secondaryQueryStatement, 2))))
-                case 8:
+                case DataTypeDictionary.insMessage.rawValue:
                     contacts[Int(sqlite3_column_int(secondaryQueryStatement, 0))]?.instantMessage.append(String(describing: String(cString: sqlite3_column_text(secondaryQueryStatement, 2))))
                 default:
                     print("Unrecognized data")
