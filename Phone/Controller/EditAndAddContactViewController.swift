@@ -6,27 +6,33 @@
 //  Copyright © 2020 Ahmet Onur Akman. All rights reserved.
 //
 
+//
+//  FavoritesViewController.swift
+//  Phone
+//
+//  Created by protel on 4.08.2020.
+//  Copyright © 2020 Ahmet Onur Akman. All rights reserved.
+//
+
 import UIKit
 
-class Edit_AddContactViewController: UIViewController {
-    
+enum TagDictionary: Int {
+    case basicInfo = 100, ringtoneButton = 101, textToneButton = 102, notesStack = 103, phoneStack = 104, emailStack = 105, urlStack = 106, addressStack = 107, bdayStack = 108, datesStack = 109, relatedStack = 110, socialStack = 111, instantStack = 112
+    case hidden = 3, fieldToRead = 2, actionButton = 1, regular = 0
+}
+
+class EditAndAddContactViewController: UIViewController {
+
     @IBOutlet weak var bigView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var basicInfoStack: UIStackView!
-    @IBOutlet weak var addPhoneButton: UIButton!
     
     var dbHelper = DBHelper()
-    
-    var phoneNumberToSave: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.gestureCreator()
         insertFieldsIntoScroll()
-        if phoneNumberToSave != nil {
-            addFieldTapped(addPhoneButton)
-            
-        }
     }
     
     func insertFieldsIntoScroll() {
@@ -39,12 +45,11 @@ class Edit_AddContactViewController: UIViewController {
         
         bigView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
     }
-
     
-    @IBAction func addFieldTapped(_ sender: UIButton){
+    @IBAction func addFieldTapped(_ sender: UIButton) {
         var objectToBeCopied: UIView?
         for element in sender.superview?.superview?.subviews ?? [] {
-            if element.tag == TagDictionary.fieldToCopy.rawValue {
+            if (element.tag <= TagDictionary.instantStack.rawValue) && (element.tag > TagDictionary.textToneButton.rawValue) {
                 objectToBeCopied = element
             }
         }
@@ -57,24 +62,20 @@ class Edit_AddContactViewController: UIViewController {
         fieldToBeAdded?.isHidden = false
         fieldToBeAdded?.tag = TagDictionary.fieldToRead.rawValue
         
-        let gesture = UITapGestureRecognizer(target: self, action: #selector (self.deleteFieldTapped))
+        let gesture = UITapGestureRecognizer(target: self, action: #selector (self.deleteFieldFieldTapped))
         for sub in fieldToBeAdded?.subviews ?? [] {
             if sub.tag == TagDictionary.actionButton.rawValue {
                 sub.addGestureRecognizer(gesture)
-            }
-            else if (sub is UITextField) && (phoneNumberToSave != nil) && (sender == addPhoneButton) {
-                let field = sub as! UITextField
-                field.text = phoneNumberToSave
-                phoneNumberToSave = nil
             }
         }
         let superView = sender.superview?.superview as! UIStackView
         superView.addArrangedSubview(fieldToBeAdded!)
         fieldToBeAdded?.widthAnchor.constraint(equalTo: superView.widthAnchor).isActive = true
+        
     }
     
-    
-    @objc @IBAction func deleteFieldTapped(_ sender: UITapGestureRecognizer) {
+
+    @objc @IBAction func deleteFieldFieldTapped(_ sender: UITapGestureRecognizer) {
         let view = sender.view as! UIButton
         view.superview?.isHidden = true
         view.superview?.removeFromSuperview()
@@ -92,7 +93,7 @@ class Edit_AddContactViewController: UIViewController {
     
     
     @IBAction func saveTapped(_ sender: UIBarButtonItem) {
-        var newContact = Contact(id: nil, image: nil, name: nil, surname: nil, company: nil, phoneNumbers: nil, emails: nil, emergencyByPass: false, ringtone: nil, textTone: nil, url: nil, addresses: nil, birthdays: nil, dates: nil, related: nil, social: nil, instantMessage: nil, notes: nil, prefix: nil, phoneticFirstName: nil, pronunciationFirstName: nil, middleName: nil, phoneticMiddleName: nil, phoneticLastName: nil, maidenName: nil, suffix: nil, nickname: nil, jobTitle: nil, department: nil, phoneticCompanyName: nil, linkedContacts: nil, favorited: false, blocked: false, isEmergencyContact: (false, ""))
+        var newContact = Contact(id: nil, image: nil, name: nil, surname: nil, company: nil, phoneNumbers: nil, emails: nil, emergencyByPass: false, ringtone: nil, textTone: nil, url: nil, addresses: nil, birthdays: nil, dates: nil, related: nil, social: nil, instantMessage: nil, notes: nil, prefix: nil, phoneticFirstName: nil, pronunciationFirstName: nil, middleName: nil, phoneticMiddleName: nil, phoneticLastName: nil, maidenName: nil, suffix: nil, nickname: nil, jobTitle: nil, department: nil, phoneticCompanyName: nil, linkedContacts: nil, favorited: false, blocked: false, emergencyContact: (false, ""))
         
         var bigStack: UIStackView?
         for stack in bigView.subviews {
@@ -104,8 +105,8 @@ class Edit_AddContactViewController: UIViewController {
             case TagDictionary.basicInfo.rawValue:
                 var basicInfo: Array<String?> = []
                 for element in stack.subviews {
-                    let field = element as! UITextField
-                    basicInfo.append(field.text)
+                        let field = element as! UITextField
+                        basicInfo.append(field.text)
                 }
                 newContact.prefix = basicInfo[0]
                 newContact.name = basicInfo[1]
@@ -184,4 +185,5 @@ class Edit_AddContactViewController: UIViewController {
     @IBAction func cancelTapped(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
+    
 }
