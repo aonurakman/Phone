@@ -28,6 +28,8 @@
 		CA44002824E4126100A822AF /* DBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA44002724E4126100A822AF /* DBHelper.swift */; };
 		CA44002B24E41D6600A822AF /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CA44002A24E41D4A00A822AF /* libsqlite3.tbd */; };
 		CAEF6F4D24DC3C2700F7D028 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEF6F4C24DC3C2700F7D028 /* Contact.swift */; };
+		CAF815CC24E6C27F00885561 /* ContactsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF815CB24E6C27F00885561 /* ContactsTableViewCell.swift */; };
+		CAF815CE24E6DEE600885561 /* CounterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF815CD24E6DEE600885561 /* CounterTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +56,8 @@
 		CA44002724E4126100A822AF /* DBHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBHelper.swift; sourceTree = "<group>"; };
 		CA44002A24E41D4A00A822AF /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		CAEF6F4C24DC3C2700F7D028 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		CAF815CB24E6C27F00885561 /* ContactsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsTableViewCell.swift; sourceTree = "<group>"; };
+		CAF815CD24E6DEE600885561 /* CounterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +117,8 @@
 				CA1002FF24D96AEA00CE5880 /* VoiceMailViewController.swift */,
 				CA10030124D96B0A00CE5880 /* ContactDetailsViewController.swift */,
 				CA10030324D96B2F00CE5880 /* Edit&AddContactViewController.swift */,
+				CAF815CB24E6C27F00885561 /* ContactsTableViewCell.swift */,
+				CAF815CD24E6DEE600885561 /* CounterTableViewCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -234,10 +240,12 @@
 				CA41342F24E5785500DE3EFA /* Integer.swift in Sources */,
 				CA1002FC24D96AAE00CE5880 /* CallLogsViewController.swift in Sources */,
 				CA1002E824D93D3200CE5880 /* SceneDelegate.swift in Sources */,
+				CAF815CC24E6C27F00885561 /* ContactsTableViewCell.swift in Sources */,
 				CA41342824E576BC00DE3EFA /* NSObject.swift in Sources */,
 				CA10030024D96AEA00CE5880 /* VoiceMailViewController.swift in Sources */,
 				CA41342A24E5772800DE3EFA /* UI_ViewController.swift in Sources */,
 				CA10030224D96B0A00CE5880 /* ContactDetailsViewController.swift in Sources */,
+				CAF815CE24E6DEE600885561 /* CounterTableViewCell.swift in Sources */,
 				CA41342D24E5783000DE3EFA /* String.swift in Sources */,
 				CA10030424D96B2F00CE5880 /* Edit&AddContactViewController.swift in Sources */,
 				CA1002FE24D96AD200CE5880 /* ContactsViewController.swift in Sources */,

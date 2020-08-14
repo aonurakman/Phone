@@ -79,6 +79,15 @@ class DialPadViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func tapOnAddNumber(_ sender: UIButton) {
+        performSegue(withIdentifier: "saveThisNumber", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "saveThisNumber" {
+            let navController = segue.destination as? UINavigationController
+            let viewController = navController?.viewControllers.first as? Edit_AddContactViewController
+            viewController?.phoneNumberToSave = entryField.text
+        }
     }
     
     

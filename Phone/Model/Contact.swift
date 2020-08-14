@@ -18,7 +18,7 @@ struct Contact {
     var company: String?
     var phoneNumbers: Array<String>
     var emails: Array<String>
-    var emergencyByPass: Bool?
+    var emergencyByPass: Bool
     var ringtone: String?
     var textTone: String?
     var url: Array<String>
@@ -44,9 +44,9 @@ struct Contact {
     var linkedContacts: Dictionary<String,Contact>?
     var favorited: Bool
     var blocked: Bool
-    var emergencyContact: (Bool, String)
+    var isEmergencyContact: (Bool, String)
     
-    init(id: Int?, image: UIImage?, name: String?, surname: String?, company: String?, phoneNumbers: Array<String>?, emails: Array<String>?, emergencyByPass: Bool, ringtone: String?, textTone: String?, url: Array<String>?, addresses: Array<String>?, birthdays: Array<String>?, dates: Array<String>?, related: Array<String>?, social: Array<String>?, instantMessage: Array<String>?, notes: String?, prefix: String?, phoneticFirstName: String?, pronunciationFirstName: String?, middleName: String?, phoneticMiddleName: String?, phoneticLastName: String?, maidenName: String?, suffix: String?, nickname: String?, jobTitle: String?, department: String?, phoneticCompanyName: String?, linkedContacts: Dictionary<String, Contact>?, favorited: Bool, blocked: Bool, emergencyContact: (Bool, String)) {
+    init(id: Int?, image: UIImage?, name: String?, surname: String?, company: String?, phoneNumbers: Array<String>?, emails: Array<String>?, emergencyByPass: Bool?, ringtone: String?, textTone: String?, url: Array<String>?, addresses: Array<String>?, birthdays: Array<String>?, dates: Array<String>?, related: Array<String>?, social: Array<String>?, instantMessage: Array<String>?, notes: String?, prefix: String?, phoneticFirstName: String?, pronunciationFirstName: String?, middleName: String?, phoneticMiddleName: String?, phoneticLastName: String?, maidenName: String?, suffix: String?, nickname: String?, jobTitle: String?, department: String?, phoneticCompanyName: String?, linkedContacts: Dictionary<String, Contact>?, favorited: Bool, blocked: Bool?, isEmergencyContact: (Bool, String)) {
         self.id = id ?? ((Contact.contactsCatalog.keys.max() ?? 0) + 1)
         self.image = image
         self.name = name
@@ -54,7 +54,7 @@ struct Contact {
         self.company = company
         self.phoneNumbers = phoneNumbers ?? []
         self.emails = emails ?? []
-        self.emergencyByPass = emergencyByPass
+        self.emergencyByPass = emergencyByPass ?? false
         self.ringtone = ringtone
         self.textTone = textTone
         self.url = url ?? []
@@ -79,8 +79,8 @@ struct Contact {
         self.phoneticCompanyName = phoneticCompanyName
         self.linkedContacts = linkedContacts
         self.favorited = favorited
-        self.blocked = blocked
-        self.emergencyContact = emergencyContact
+        self.blocked = blocked ?? false
+        self.isEmergencyContact = isEmergencyContact
     }
     
 
