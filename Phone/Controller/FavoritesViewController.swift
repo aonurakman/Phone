@@ -8,41 +8,26 @@
 
 import UIKit
 
+enum TagDictionary: Int {
+    case basicInfo = 100, ringtoneButton = 101, textToneButton = 102, notesStack = 103, phoneStack = 104, emailStack = 105, urlStack = 106, addressStack = 107, bdayStack = 108, datesStack = 109, relatedStack = 110, socialStack = 111, instantStack = 112
+    case hidden = 3, fieldToRead = 2, actionButton = 1, regular = 0
+}
+
 class FavoritesViewController: UIViewController {
 
     @IBOutlet weak var bigView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
-    
-    @IBOutlet weak var photoStack: UIStackView!
     @IBOutlet weak var basicInfoStack: UIStackView!
-    @IBOutlet weak var phoneNrStack: UIStackView!
-    
-    @IBOutlet weak var prefixField: UITextField!
-    @IBOutlet weak var firstNameField: UITextField!
-    @IBOutlet weak var phoFirstNameField: UITextField!
-    @IBOutlet weak var proFirstNameField: UITextField!
-    @IBOutlet weak var midNameField: UITextField!
-    @IBOutlet weak var phoMidNameField: UITextField!
-    @IBOutlet weak var lastNameField: UITextField!
-    @IBOutlet weak var phoLastNameField: UITextField!
-    @IBOutlet weak var maidenNameField: UITextField!
-    @IBOutlet weak var suffixField: UITextField!
-    @IBOutlet weak var nicknameField: UITextField!
-    @IBOutlet weak var jobTitleField: UITextField!
-    @IBOutlet weak var departmentField: UITextField!
-    @IBOutlet weak var companyField: UITextField!
-    @IBOutlet weak var phoCompanyField: UITextField!
-    @IBOutlet weak var proCompanyField: UITextField!
-    
-    @IBOutlet weak var phoneFieldStack: UIStackView!
-    
     
     var dbHelper = DBHelper()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.gestureCreator()
+        insertFieldsIntoScroll()
+    }
+    
+    func insertFieldsIntoScroll() {
         scrollView.addSubview(bigView)
         bigView.translatesAutoresizingMaskIntoConstraints = false
         bigView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
@@ -54,18 +39,24 @@ class FavoritesViewController: UIViewController {
     }
     
     @IBAction func addFieldTapped(_ sender: UIButton) {
-        var objectToBeCopied: UIView = phoneFieldStack
+        var objectToBeCopied: UIView?
         for element in sender.superview?.superview?.subviews ?? [] {
-            if (element.tag < 111) && (element.tag > 99) {
+            if (element.tag <= TagDictionary.instantStack.rawValue) && (element.tag > TagDictionary.textToneButton.rawValue) {
                 objectToBeCopied = element
             }
         }
-        let fieldToBeAdded = try? (objectToBeCopied.copyObject() as! UIStackView)
+        
+        if objectToBeCopied == nil {
+            return
+        }
+        
+        let fieldToBeAdded = try? (objectToBeCopied?.copyObject() as! UIStackView)
         fieldToBeAdded?.isHidden = false
-        fieldToBeAdded?.tag = 2
+        fieldToBeAdded?.tag = TagDictionary.fieldToRead.rawValue
+        
         let gesture = UITapGestureRecognizer(target: self, action: #selector (self.deleteFieldFieldTapped))
         for sub in fieldToBeAdded?.subviews ?? [] {
-            if sub.tag == 1 {
+            if sub.tag == TagDictionary.actionButton.rawValue {
                 sub.addGestureRecognizer(gesture)
             }
         }
@@ -77,7 +68,6 @@ class FavoritesViewController: UIViewController {
     
 
     @objc @IBAction func deleteFieldFieldTapped(_ sender: UITapGestureRecognizer) {
-        print("TAP")
         let view = sender.view as! UIButton
         view.superview?.isHidden = true
         view.superview?.removeFromSuperview()
@@ -85,9 +75,9 @@ class FavoritesViewController: UIViewController {
     
     @IBAction func addNewBasicInfoField(_ sender: UIButton) {
         hiddenSearch: for element in basicInfoStack.subviews {
-            if element.tag == 3 {
+            if element.tag == TagDictionary.hidden.rawValue {
                 element.isHidden = false
-                element.tag = 0
+                element.tag = TagDictionary.regular.rawValue
                 break
             }
         }
@@ -104,11 +94,11 @@ class FavoritesViewController: UIViewController {
         for stack in bigStack?.subviews ?? [] {
             print(stack.tag)
             switch stack.tag {
-            case 100:
-                var basicInfo: Array<String> = []
+            case TagDictionary.basicInfo.rawValue:
+                var basicInfo: Array<String?> = []
                 for element in stack.subviews {
-                    let field = element as! UITextField
-                    basicInfo.append(field.text ?? "")
+                        let field = element as! UITextField
+                        basicInfo.append(field.text)
                 }
                 newContact.prefix = basicInfo[0]
                 newContact.name = basicInfo[1]
@@ -126,60 +116,60 @@ class FavoritesViewController: UIViewController {
                 newContact.company = basicInfo[13]
                 newContact.phoneticCompanyName = basicInfo[14]
                 newContact.pronunciationFirstName = basicInfo[15]
-            case 101:
+            case TagDictionary.ringtoneButton.rawValue:
                 newContact.ringtone = "Default"
-            case 102:
+            case TagDictionary.textToneButton.rawValue:
                 newContact.textTone = "Default"
-            case 103:
+            case TagDictionary.notesStack.rawValue:
                 for element in stack.subviews {
-                    if element.tag == 2 {
+                    if element.tag == TagDictionary.fieldToRead.rawValue {
                         let field = element as! UITextView
                         newContact.notes = field.text
                     }
                 }
-            case 104...112:
+                
+            case TagDictionary.phoneStack.rawValue...TagDictionary.instantStack.rawValue:
                 var data: Array<String> = []
                 for element in stack.subviews {
-                    if element.tag == 2 {
+                    if element.tag == TagDictionary.fieldToRead.rawValue {
                         for sub in element.subviews {
                             if sub is UITextField {
                                 let field = sub as! UITextField
-                                data.append(field.text ?? "")
+                                if (field.text?.count ?? 0) > 0 {
+                                    data.append(field.text!)
+                                }
                             }
                         }
                     }
                 }
                 print(data)
                 switch stack.tag {
-                case 104:
+                case TagDictionary.phoneStack.rawValue:
                     newContact.phoneNumbers = data
-                case 105:
+                case TagDictionary.emailStack.rawValue:
                     newContact.emails = data
-                case 106:
+                case TagDictionary.urlStack.rawValue:
                     newContact.url = data
-                case 107:
+                case TagDictionary.addressStack.rawValue:
                     newContact.addresses = data
-                case 108:
+                case TagDictionary.bdayStack.rawValue:
                     newContact.birthdays = data
-                case 109:
+                case TagDictionary.datesStack.rawValue:
                     newContact.dates = data
-                case 110:
+                case TagDictionary.relatedStack.rawValue:
                     newContact.related = data
-                case 111:
+                case TagDictionary.socialStack.rawValue:
                     newContact.social = data
-                case 112:
+                case TagDictionary.instantStack.rawValue:
                     newContact.instantMessage = data
                 default:
-                    print("Error occurred")
+                    print("Error!")
                 }
             default:
-                print("Error occurred!")
+                print("Could not recognize entry field.")
             }
         }
         newContact.addToCatalog()
         dbHelper.insert(newContact: newContact)
     }
-    
-    
-    
 }
