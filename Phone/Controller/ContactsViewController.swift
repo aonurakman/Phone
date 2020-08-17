@@ -15,30 +15,29 @@ class ContactsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var contacts: [Contact] = []
-    
-    
+    var dbHelper = DBHelper()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.backgroundColor = .clear
-        let contactCount = Contact.contactsCatalog.count
-        
-        for key in Contact.contactsCatalog.keys {
-            contacts.append(Contact.contactsCatalog[key]!)
-        }
-        
-        displayContacts()
-        
-        switch contactCount {
-        case 0...1:
-            contactCountLabel.text = "\(contactCount) Contact"
-        default:
-            contactCountLabel.text = "\(contactCount) Contacts"
-        }
-        
         searchBar.backgroundImage = UIImage()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        getContacts()
+    }
+    
+    func getContacts(){
+        contacts = dbHelper.read()
+        displayContacts()
+        switch contacts.count {
+        case 0...1:
+            contactCountLabel.text = "\(contacts.count) Contact"
+        default:
+            contactCountLabel.text = "\(contacts.count) Contacts"
+        }
     }
 
     func displayContacts(){
@@ -63,6 +62,20 @@ class ContactsViewController: UIViewController {
     @IBAction func contactAddClicked(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "moveToAddContact", sender: self)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "moveToAddContact" {
+            let navController = segue.destination as? UINavigationController
+            let viewController = navController?.viewControllers.first as? Edit_AddContactViewController
+            viewController?.delegate = self
+        }
+    }
+}
+
+extension ContactsViewController: NewContactDelegate {
+    func didNewContactAdded(){
+        getContacts()
+    }
 }
 
 extension ContactsViewController: ContainsTableView{
@@ -74,6 +87,13 @@ extension ContactsViewController: ContainsTableView{
         let cell = tableView.dequeueReusableCell(withIdentifier: "contactCell") as! ContactsTableViewCell
         cell.nameLabel.text = contacts[indexPath.row].name
         cell.lastNameLabel.text = contacts[indexPath.row].surname
+        if contacts[indexPath.row].surname?.count == 0 {
+            cell.nameLabel.font = UIFont.boldSystemFont(ofSize: 17.0)
+        }
+        else {
+            cell.lastNameLabel.font = UIFont.boldSystemFont(ofSize: 17.0)
+        }
+        
         if contacts[indexPath.row].isEmergencyContact.0 {
             cell.rightHandSideLogo.image = UIImage(systemName: "staroflife.fill")
             cell.rightHandSideLogo.tintColor = .red
@@ -81,7 +101,6 @@ extension ContactsViewController: ContainsTableView{
         else {
             cell.rightHandSideLogo.image = UIImage()
         }
-        print("HEY")
         return cell
     }
     
@@ -89,6 +108,5 @@ extension ContactsViewController: ContainsTableView{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
-    
     
 }

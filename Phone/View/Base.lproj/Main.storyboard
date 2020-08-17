@@ -734,7 +734,7 @@ Cg
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hjv-BV-Q1M">
-                                                    <rect key="frame" x="30" y="0.0" width="95" height="40.5"/>
+                                                    <rect key="frame" x="20" y="0.0" width="95" height="40.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" tag="50" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ad-2I-ueg">
                                                             <rect key="frame" x="0.0" y="0.0" width="45" height="40.5"/>
@@ -754,7 +754,7 @@ Cg
                                                     </constraints>
                                                 </stackView>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="52" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="k7E-4w-RPM">
-                                                    <rect key="frame" x="303.5" y="0.0" width="40.5" height="40.5"/>
+                                                    <rect key="frame" x="313.5" y="0.0" width="40.5" height="40.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="k7E-4w-RPM" secondAttribute="height" multiplier="1:1" id="tLm-TB-Q06"/>
                                                     </constraints>
@@ -763,10 +763,10 @@ Cg
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="k7E-4w-RPM" secondAttribute="bottom" id="5C3-sX-Wof"/>
                                                 <constraint firstItem="k7E-4w-RPM" firstAttribute="top" secondItem="Uyo-VI-dT5" secondAttribute="top" id="Cdi-VY-v54"/>
-                                                <constraint firstItem="hjv-BV-Q1M" firstAttribute="leading" secondItem="Uyo-VI-dT5" secondAttribute="leading" constant="30" id="J22-45-44b"/>
+                                                <constraint firstItem="hjv-BV-Q1M" firstAttribute="leading" secondItem="Uyo-VI-dT5" secondAttribute="leading" constant="20" id="J22-45-44b"/>
                                                 <constraint firstItem="hjv-BV-Q1M" firstAttribute="top" secondItem="Uyo-VI-dT5" secondAttribute="top" id="Na7-L3-7c1"/>
                                                 <constraint firstAttribute="bottom" secondItem="hjv-BV-Q1M" secondAttribute="bottom" id="oed-3b-583"/>
-                                                <constraint firstAttribute="trailing" secondItem="k7E-4w-RPM" secondAttribute="trailing" constant="30" id="qvQ-Ff-b4v"/>
+                                                <constraint firstAttribute="trailing" secondItem="k7E-4w-RPM" secondAttribute="trailing" constant="20" id="qvQ-Ff-b4v"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

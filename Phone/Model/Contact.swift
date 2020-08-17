@@ -95,14 +95,14 @@ struct Contact {
     
     func introduceSelf(){
         print()
-        print(self)
-        /*print("---ID:---")
+        //print(self)
+        print("---ID:---")
         print(self.id)
         print("---NAME:---")
         print((self.name==nil || self.name?.count==0) ? "nil" : self.name!)
         print("---SURNAME:---")
         print((self.surname==nil || self.surname?.count==0) ? "nil" : self.surname!)
         print("---COMPANY:---")
-        print((self.company==nil || self.company?.count==0) ? "nil" : self.company!)*/
+        print((self.company==nil || self.company?.count==0) ? "nil" : self.company!)
     }
 }

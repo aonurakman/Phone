@@ -69,7 +69,7 @@ class DialPadViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func tapOnCallButton(_ sender: UIButton) {
-        if entryField.text == "" {
+        if entryField.text == "" {  //nil??
             return
         }
         if let url = URL(string: "tel://\(entryField.text!)"),

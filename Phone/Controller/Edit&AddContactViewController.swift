@@ -9,13 +9,14 @@
 import UIKit
 
 class Edit_AddContactViewController: UIViewController {
-    
+    // section header 
     @IBOutlet weak var bigView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var basicInfoStack: UIStackView!
     @IBOutlet weak var addPhoneButton: UIButton!
     
     var dbHelper = DBHelper()
+    var delegate: NewContactDelegate?
     
     var phoneNumberToSave: String?
     
@@ -43,6 +44,7 @@ class Edit_AddContactViewController: UIViewController {
     
     @IBAction func addFieldTapped(_ sender: UIButton){
         var objectToBeCopied: UIView?
+        //for değil de filter yap
         for element in sender.superview?.superview?.subviews ?? [] {
             if element.tag == TagDictionary.fieldToCopy.rawValue {
                 objectToBeCopied = element
@@ -178,6 +180,7 @@ class Edit_AddContactViewController: UIViewController {
         }
         newContact.addToCatalog()
         dbHelper.insert(newContact: newContact)
+        delegate?.didNewContactAdded()
         dismiss(animated: true, completion: nil)
     }
     
