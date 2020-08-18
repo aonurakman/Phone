@@ -233,7 +233,7 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H2N-Tq-cUX" userLabel="addPhoneStack">
                                                                 <rect key="frame" x="0.0" y="0.0" width="165" height="40"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9xg-pX-aSN">
+                                                                    <button opaque="NO" tag="104" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9xg-pX-aSN">
                                                                         <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                                                         <color key="backgroundColor" name="backgroundColor"/>
                                                                         <constraints>
@@ -246,7 +246,7 @@
                                                                             <action selector="addFieldTapped:" destination="G7F-SL-gLs" eventType="touchUpInside" id="dKd-Yg-tDj"/>
                                                                         </connections>
                                                                     </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gvS-th-HZh">
+                                                                    <button opaque="NO" tag="104" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gvS-th-HZh">
                                                                         <rect key="frame" x="40" y="0.0" width="125" height="40"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <state key="normal" title="   add phone"/>
@@ -268,7 +268,7 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h2j-zE-t6H" userLabel="addMailStack">
                                                                 <rect key="frame" x="0.0" y="0.0" width="165" height="40"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4xM-Jn-s3f">
+                                                                    <button opaque="NO" tag="105" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4xM-Jn-s3f">
                                                                         <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                                                         <color key="backgroundColor" name="backgroundColor"/>
                                                                         <constraints>
@@ -281,7 +281,7 @@
                                                                             <action selector="addFieldTapped:" destination="G7F-SL-gLs" eventType="touchUpInside" id="wqZ-Yf-q63"/>
                                                                         </connections>
                                                                     </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oFu-cf-9vD">
+                                                                    <button opaque="NO" tag="105" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oFu-cf-9vD">
                                                                         <rect key="frame" x="40" y="0.0" width="125" height="40"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <state key="normal" title="   add mail"/>
@@ -385,7 +385,7 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VjL-Vc-xPg" userLabel="addUrlStack">
                                                                 <rect key="frame" x="0.0" y="0.0" width="165" height="40"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J1t-ws-6aI">
+                                                                    <button opaque="NO" tag="106" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J1t-ws-6aI">
                                                                         <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                                                         <color key="backgroundColor" name="backgroundColor"/>
                                                                         <constraints>
@@ -398,7 +398,7 @@
                                                                             <action selector="addFieldTapped:" destination="G7F-SL-gLs" eventType="touchUpInside" id="uNy-Fu-QNI"/>
                                                                         </connections>
                                                                     </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z3W-d4-F4W">
+                                                                    <button opaque="NO" tag="106" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z3W-d4-F4W">
                                                                         <rect key="frame" x="40" y="0.0" width="125" height="40"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <state key="normal" title="   add url"/>
@@ -452,7 +452,7 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sav-hd-eiL" userLabel="addAddressStack">
                                                                 <rect key="frame" x="0.0" y="0.0" width="165" height="40"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yko-9k-kpk">
+                                                                    <button opaque="NO" tag="107" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yko-9k-kpk">
                                                                         <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                                                         <color key="backgroundColor" name="backgroundColor"/>
                                                                         <constraints>
@@ -465,7 +465,7 @@
                                                                             <action selector="addFieldTapped:" destination="G7F-SL-gLs" eventType="touchUpInside" id="zxx-TA-sTd"/>
                                                                         </connections>
                                                                     </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SiV-oS-sps">
+                                                                    <button opaque="NO" tag="107" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SiV-oS-sps">
                                                                         <rect key="frame" x="40" y="0.0" width="125" height="40"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <state key="normal" title="   add address"/>
@@ -519,7 +519,7 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S1n-I3-b07" userLabel="addBdayStack">
                                                                 <rect key="frame" x="0.0" y="0.0" width="165" height="40"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iO9-vC-MX0">
+                                                                    <button opaque="NO" tag="108" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iO9-vC-MX0">
                                                                         <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                                                         <color key="backgroundColor" name="backgroundColor"/>
                                                                         <constraints>
@@ -532,7 +532,7 @@
                                                                             <action selector="addFieldTapped:" destination="G7F-SL-gLs" eventType="touchUpInside" id="tHg-jA-DsK"/>
                                                                         </connections>
                                                                     </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="klZ-0W-skS">
+                                                                    <button opaque="NO" tag="108" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="klZ-0W-skS">
                                                                         <rect key="frame" x="40" y="0.0" width="125" height="40"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <state key="normal" title="   add birthday"/>
@@ -586,7 +586,7 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Gp-7O-Mlx" userLabel="addDateStack">
                                                                 <rect key="frame" x="0.0" y="0.0" width="165" height="40"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rh5-DY-BcN">
+                                                                    <button opaque="NO" tag="109" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rh5-DY-BcN">
                                                                         <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                                                         <color key="backgroundColor" name="backgroundColor"/>
                                                                         <constraints>
@@ -599,7 +599,7 @@
                                                                             <action selector="addFieldTapped:" destination="G7F-SL-gLs" eventType="touchUpInside" id="ax6-GB-LhW"/>
                                                                         </connections>
                                                                     </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jSA-TJ-MVn">
+                                                                    <button opaque="NO" tag="109" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jSA-TJ-MVn">
                                                                         <rect key="frame" x="40" y="0.0" width="125" height="40"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <state key="normal" title="   add date"/>
@@ -653,7 +653,7 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x7P-Rw-NM8" userLabel="addRelatedStack">
                                                                 <rect key="frame" x="0.0" y="0.0" width="165" height="40"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7tK-i7-RAK">
+                                                                    <button opaque="NO" tag="110" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7tK-i7-RAK">
                                                                         <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                                                         <color key="backgroundColor" name="backgroundColor"/>
                                                                         <constraints>
@@ -666,7 +666,7 @@
                                                                             <action selector="addFieldTapped:" destination="G7F-SL-gLs" eventType="touchUpInside" id="XvZ-2z-tDA"/>
                                                                         </connections>
                                                                     </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Qg-R0-3Zi">
+                                                                    <button opaque="NO" tag="110" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Qg-R0-3Zi">
                                                                         <rect key="frame" x="40" y="0.0" width="125" height="40"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <state key="normal" title="   add related name"/>
@@ -720,7 +720,7 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1P6-Ze-Kvz" userLabel="addSocialStack">
                                                                 <rect key="frame" x="0.0" y="0.0" width="165" height="40"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qIm-vX-jZy">
+                                                                    <button opaque="NO" tag="111" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qIm-vX-jZy">
                                                                         <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                                                         <color key="backgroundColor" name="backgroundColor"/>
                                                                         <constraints>
@@ -733,7 +733,7 @@
                                                                             <action selector="addFieldTapped:" destination="G7F-SL-gLs" eventType="touchUpInside" id="DlH-za-DtH"/>
                                                                         </connections>
                                                                     </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Dh-sT-oFI">
+                                                                    <button opaque="NO" tag="111" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Dh-sT-oFI">
                                                                         <rect key="frame" x="40" y="0.0" width="125" height="40"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <state key="normal" title="   add social profile"/>
@@ -787,7 +787,7 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1u1-oU-Ei3" userLabel="addInstantStack">
                                                                 <rect key="frame" x="0.0" y="0.0" width="165" height="40"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kwb-mP-CBO">
+                                                                    <button opaque="NO" tag="112" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kwb-mP-CBO">
                                                                         <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                                                         <color key="backgroundColor" name="backgroundColor"/>
                                                                         <constraints>
@@ -800,7 +800,7 @@
                                                                             <action selector="addFieldTapped:" destination="G7F-SL-gLs" eventType="touchUpInside" id="G1C-bo-P8x"/>
                                                                         </connections>
                                                                     </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H6X-xj-Zok">
+                                                                    <button opaque="NO" tag="112" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H6X-xj-Zok">
                                                                         <rect key="frame" x="40" y="0.0" width="125" height="40"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <state key="normal" title="   add instant message"/>
@@ -967,6 +967,7 @@
                     <connections>
                         <outlet property="addPhoneButton" destination="9xg-pX-aSN" id="uiF-J2-r8F"/>
                         <outlet property="basicInfoStack" destination="wRD-l4-yNC" id="B1b-SG-YAY"/>
+                        <outlet property="bigStack" destination="Uhe-wb-Nde" id="56H-Gj-H0D"/>
                         <outlet property="bigView" destination="EhB-da-bCb" id="kzs-Sl-O48"/>
                         <outlet property="scrollView" destination="ziM-6O-cdb" id="whr-W9-ZsW"/>
                     </connections>

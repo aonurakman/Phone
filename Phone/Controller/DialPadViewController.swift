@@ -69,10 +69,13 @@ class DialPadViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func tapOnCallButton(_ sender: UIButton) {
-        if entryField.text == "" {  //nil??
+        guard let dialedNumber = entryField.text else {
             return
         }
-        if let url = URL(string: "tel://\(entryField.text!)"),
+        if dialedNumber.count == 0 {  //nil??
+            return
+        }
+        if let url = URL(string: "tel://\(dialedNumber)"),
             UIApplication.shared.canOpenURL(url) {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
@@ -105,8 +108,9 @@ class DialPadViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func longPressed(_ sender: UILongPressGestureRecognizer) {
         
-        let button = sender.delegate as! UIButton
-        print("huh")
+        guard let button = sender.delegate as? UIButton else {
+            return
+        }
         
         if sender.state == .began {
             switch button.tag {

@@ -12,4 +12,6 @@ class ContactsTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var lastNameLabel: UILabel!
     @IBOutlet weak var rightHandSideLogo: UIImageView!
+    
+    let id: Int = 0
 }

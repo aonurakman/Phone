@@ -9,11 +9,12 @@
 import UIKit
 
 class Edit_AddContactViewController: UIViewController {
-    // section header 
+    
     @IBOutlet weak var bigView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var basicInfoStack: UIStackView!
     @IBOutlet weak var addPhoneButton: UIButton!
+    @IBOutlet weak var bigStack: UIStackView!
     
     var dbHelper = DBHelper()
     var delegate: NewContactDelegate?
@@ -43,24 +44,18 @@ class Edit_AddContactViewController: UIViewController {
 
     
     @IBAction func addFieldTapped(_ sender: UIButton){
-        var objectToBeCopied: UIView?
-        //for değil de filter yap
-        for element in sender.superview?.superview?.subviews ?? [] {
-            if element.tag == TagDictionary.fieldToCopy.rawValue {
-                objectToBeCopied = element
-            }
-        }
+        guard let typeView = bigStack.subviews.filter({ $0.tag == sender.tag }).first as? UIStackView
+            else { return }
+        guard let objectToBeCopied = typeView.subviews.filter({ $0.tag == TagDictionary.fieldToCopy.rawValue }).last
+            else { return }
+        guard let fieldToBeAdded = try? (objectToBeCopied.copyObject() as? UIStackView)
+            else { return }
         
-        if objectToBeCopied == nil {
-            return
-        }
-        
-        let fieldToBeAdded = try? (objectToBeCopied?.copyObject() as! UIStackView)
-        fieldToBeAdded?.isHidden = false
-        fieldToBeAdded?.tag = TagDictionary.fieldToRead.rawValue
+        fieldToBeAdded.isHidden = false
+        fieldToBeAdded.tag = TagDictionary.fieldToRead.rawValue
         
         let gesture = UITapGestureRecognizer(target: self, action: #selector (self.deleteFieldTapped))
-        for sub in fieldToBeAdded?.subviews ?? [] {
+        for sub in fieldToBeAdded.subviews {
             if sub.tag == TagDictionary.actionButton.rawValue {
                 sub.addGestureRecognizer(gesture)
             }
@@ -70,14 +65,16 @@ class Edit_AddContactViewController: UIViewController {
                 phoneNumberToSave = nil
             }
         }
-        let superView = sender.superview?.superview as! UIStackView
-        superView.addArrangedSubview(fieldToBeAdded!)
-        fieldToBeAdded?.widthAnchor.constraint(equalTo: superView.widthAnchor).isActive = true
+        
+        typeView.addArrangedSubview(fieldToBeAdded)
+        fieldToBeAdded.widthAnchor.constraint(equalTo: typeView.widthAnchor).isActive = true
     }
     
     
     @objc @IBAction func deleteFieldTapped(_ sender: UITapGestureRecognizer) {
-        let view = sender.view as! UIButton
+        guard let view = sender.view as? UIButton else {
+            return
+        }
         view.superview?.isHidden = true
         view.superview?.removeFromSuperview()
     }

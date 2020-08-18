@@ -13,8 +13,13 @@ class ContactsViewController: UIViewController {
     @IBOutlet weak var contactCountLabel: UILabel!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var userCardView: UIView!
+    @IBOutlet weak var headerStack: UIStackView!
     
     var contacts: [Contact] = []
+    var contactsAlphabetical: Dictionary<Character,[Contact]> = [:]
+    var sectionTitles: [Character] = []
+    
     var dbHelper = DBHelper()
     
     override func viewDidLoad() {
@@ -23,6 +28,9 @@ class ContactsViewController: UIViewController {
         tableView.dataSource = self
         tableView.backgroundColor = .clear
         searchBar.backgroundImage = UIImage()
+        
+        tableView.tableFooterView = contactCountLabel
+        tableView.tableHeaderView = headerStack
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -31,13 +39,32 @@ class ContactsViewController: UIViewController {
     
     func getContacts(){
         contacts = dbHelper.read()
+        seperateContactsAlphabetically()
         displayContacts()
+        
         switch contacts.count {
-        case 0...1:
+        case 0:
+            contactCountLabel.text = "No Contacts"
+        case 1:
             contactCountLabel.text = "\(contacts.count) Contact"
         default:
             contactCountLabel.text = "\(contacts.count) Contacts"
         }
+    }
+    
+    func seperateContactsAlphabetically() {
+        contactsAlphabetical.removeAll()
+        sectionTitles.removeAll()
+        
+        for contact in contacts {
+            let initial: Character = ((contact.surname?.first?.uppercased() ?? contact.name?.first?.uppercased()) as Character?) ?? "#"
+            if contactsAlphabetical[initial] == nil {
+                sectionTitles.append((initial))
+                contactsAlphabetical[initial] = []
+            }
+            contactsAlphabetical[initial]?.append(contact)
+        }
+        sectionTitles.sort(by: {$0<$1})
     }
 
     func displayContacts(){
@@ -79,15 +106,16 @@ extension ContactsViewController: NewContactDelegate {
 }
 
 extension ContactsViewController: ContainsTableView{
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return contacts.count
-    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "contactCell") as! ContactsTableViewCell
-        cell.nameLabel.text = contacts[indexPath.row].name
-        cell.lastNameLabel.text = contacts[indexPath.row].surname
-        if contacts[indexPath.row].surname?.count == 0 {
+        
+        guard let contact = contactsAlphabetical[sectionTitles[indexPath.section]]?[indexPath.row]
+            else { return cell}
+        
+        cell.nameLabel.text = contact.name
+        cell.lastNameLabel.text = contact.surname
+        if contact.surname?.count == 0 {
             cell.nameLabel.font = UIFont.boldSystemFont(ofSize: 17.0)
         }
         else {
@@ -101,12 +129,40 @@ extension ContactsViewController: ContainsTableView{
         else {
             cell.rightHandSideLogo.image = UIImage()
         }
+        
+        
+        
         return cell
     }
     
     // Click on list item
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return contactsAlphabetical.keys.count
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let key = sectionTitles[section]
+        if let values = contactsAlphabetical[key] {
+            return values.count
+        }
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "\(sectionTitles[section])"
+    }
+    
+    func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        var titles : [String] = []
+        for title in sectionTitles {
+            titles.append("\(title)")
+        }
+        return titles
     }
     
 }
