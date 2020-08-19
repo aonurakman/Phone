@@ -676,7 +676,7 @@ Cg
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="0nJ-0X-LYX">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="0nJ-0X-LYX">
                                 <rect key="frame" x="20" y="98" width="374" height="194"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contacts" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GbJ-S1-l9e">
@@ -797,6 +797,7 @@ Cg
                             <constraint firstItem="0nJ-0X-LYX" firstAttribute="leading" secondItem="Mu9-hs-z7L" secondAttribute="leading" constant="20" id="60B-Jd-9wW"/>
                             <constraint firstItem="Mu9-hs-z7L" firstAttribute="bottom" secondItem="Dte-xn-Ezv" secondAttribute="bottom" constant="10" id="Ls3-vk-2nU"/>
                             <constraint firstItem="Dte-xn-Ezv" firstAttribute="leading" secondItem="Mu9-hs-z7L" secondAttribute="leading" constant="20" id="QNN-uF-tpe"/>
+                            <constraint firstItem="0nJ-0X-LYX" firstAttribute="top" secondItem="Dte-xn-Ezv" secondAttribute="top" id="QNi-dY-7G5"/>
                             <constraint firstItem="Dte-xn-Ezv" firstAttribute="top" secondItem="Mu9-hs-z7L" secondAttribute="top" constant="10" id="Qp7-Yn-Li3"/>
                             <constraint firstItem="0nJ-0X-LYX" firstAttribute="centerX" secondItem="Wry-d8-Bfi" secondAttribute="centerX" id="Zbg-Vz-dXm"/>
                             <constraint firstItem="Dte-xn-Ezv" firstAttribute="centerX" secondItem="Wry-d8-Bfi" secondAttribute="centerX" id="jWb-J9-hVT"/>
