@@ -19,6 +19,7 @@ class ContactsViewController: UIViewController {
     var contacts: [Contact] = []
     var contactsAlphabetical: Dictionary<Character,[Contact]> = [:]
     var sectionTitles: [Character] = []
+    var currentlySelectedRowIndex: IndexPath = IndexPath(row: 0, section: 0)
     
     var dbHelper = DBHelper()
     
@@ -96,6 +97,12 @@ class ContactsViewController: UIViewController {
             let viewController = navController?.viewControllers.first as? Edit_AddContactViewController
             viewController?.delegate = self
         }
+        else if segue.identifier == "displayDetail" {
+            let navController = segue.destination as? UINavigationController
+            let viewController = navController?.viewControllers.first as? ContactDetailsViewController
+            guard let cell = tableView.cellForRow(at: currentlySelectedRowIndex) as! ContactsTableViewCell? else { return }
+            viewController?.contactToView = Contact.contactsCatalog[cell.id]
+        }
     }
 }
 
@@ -115,6 +122,7 @@ extension ContactsViewController: ContainsTableView{
         
         cell.nameLabel.text = contact.name
         cell.lastNameLabel.text = contact.surname
+        cell.id = contact.id
         if contact.surname?.count == 0 {
             cell.nameLabel.font = UIFont.boldSystemFont(ofSize: 17.0)
         }
@@ -123,6 +131,7 @@ extension ContactsViewController: ContainsTableView{
         }
         
         if contacts[indexPath.row].isEmergencyContact.0 {
+            print("Found emergency contact!")
             cell.rightHandSideLogo.image = UIImage(systemName: "staroflife.fill")
             cell.rightHandSideLogo.tintColor = .red
         }
@@ -130,14 +139,13 @@ extension ContactsViewController: ContainsTableView{
             cell.rightHandSideLogo.image = UIImage()
         }
         
-        
-        
         return cell
     }
     
-    // Click on list item
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        currentlySelectedRowIndex = indexPath
         tableView.deselectRow(at: indexPath, animated: true)
+        performSegue(withIdentifier: "displayDetail", sender: self)
     }
     
     

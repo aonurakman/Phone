@@ -668,6 +668,14 @@ Cg
             </objects>
             <point key="canvasLocation" x="2843" y="1213"/>
         </scene>
+        <!--detailContactNC-->
+        <scene sceneID="3Lf-23-JSs">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SecondaryStoryboard" referencedIdentifier="detailContactNC" id="TIb-oz-lAK" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ffq-Rq-TyD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4157" y="1213"/>
+        </scene>
         <!--Contacts View Controller-->
         <scene sceneID="KiH-EH-JVe">
             <objects>
@@ -820,6 +828,7 @@ Cg
                         <outlet property="searchBar" destination="TrE-HX-K6i" id="nuT-AQ-Cu8"/>
                         <outlet property="tableView" destination="Dte-xn-Ezv" id="vjQ-az-eMl"/>
                         <outlet property="userCardView" destination="Ctw-im-Urg" id="Oom-CK-tbS"/>
+                        <segue destination="TIb-oz-lAK" kind="presentation" identifier="displayDetail" modalPresentationStyle="fullScreen" id="e4r-No-LGH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3am-sp-HJe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

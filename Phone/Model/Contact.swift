@@ -92,8 +92,9 @@ struct Contact {
     mutating func addToCatalog(){
         Contact.contactsCatalog[self.id] = self
     }
+
     
-    func introduceSelf(){
+    func introduceSelf() -> String{
         print()
         //print(self)
         print("---ID:---")
@@ -104,5 +105,18 @@ struct Contact {
         print((self.surname==nil || self.surname?.count==0) ? "nil" : self.surname!)
         print("---COMPANY:---")
         print((self.company==nil || self.company?.count==0) ? "nil" : self.company!)
+        return "\(self)"
+    }
+    
+    mutating func becomeEmergencyContact () {
+        self.isEmergencyContact = (!self.isEmergencyContact.0, "Main")
+    }
+    
+    mutating func becomeFavorited () {
+        self.favorited = (!self.favorited)
+    }
+    
+    mutating func becomeBlocked() {
+        self.blocked = !self.blocked
     }
 }
