@@ -29,6 +29,7 @@ class ContactDetailsViewController: UIViewController {
         if contactToView == nil {
             self.dismiss(animated: true, completion: nil)
         }
+        
         unableButtonsIfNotAvailable()
         nameLabel.text = (contactToView?.name ?? "") + " " + (contactToView?.surname ?? "")
         temporaryIntroducingField.text = contactToView?.introduceSelf()
