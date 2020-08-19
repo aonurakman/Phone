@@ -61,16 +61,10 @@ class ContactDetailsViewController: UIViewController {
     }
     
     @IBAction func messageClicked(_ sender: UIButton) {
-        if (MFMessageComposeViewController.canSendText()) {
-            let controller = MFMessageComposeViewController()
-            controller.body = ""
-            controller.recipients = [contactToView?.phoneNumbers.first ?? ""]
-            controller.messageComposeDelegate = self
-            self.present(controller, animated: true, completion: nil)
-        }
-        else {
-            popSingleActionAlert("Cannot Send SMS", "This application is not authorized to send SMS.")
-        }
+        if contactToView?.phoneNumbers.count == 0 { return }
+        guard let number = contactToView?.phoneNumbers.filter({$0.count>0}).last else {return}
+        
+        sendMessageTo(to: number)
     }
     
     @IBAction func callClicked(_ sender: UIButton) {
@@ -93,6 +87,10 @@ class ContactDetailsViewController: UIViewController {
     }
     
     @IBAction func sendMailClicked(_ sender: UIButton) {
+        if contactToView?.emails.count == 0 { return }
+        guard let email = contactToView?.emails.filter({$0.count>0}).last else {return}
+        
+        sendEmailTo(to: email)
     }
     
     @IBAction func paymentClicked(_ sender: UIButton) {
@@ -113,12 +111,44 @@ class ContactDetailsViewController: UIViewController {
         Contact.contactsCatalog[contactToView?.id ?? 0]?.becomeBlocked()
         dbHelper.refreshDbFromCatalog()
     }
-    
-    
 }
+
 
 extension ContactDetailsViewController: MFMessageComposeViewControllerDelegate {
     func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    func sendMessageTo(to number: String){
+        if (MFMessageComposeViewController.canSendText()) {
+            let controller = MFMessageComposeViewController()
+            controller.body = ""
+            controller.recipients = [number]
+            controller.messageComposeDelegate = self
+            self.present(controller, animated: true, completion: nil)
+        }
+        else {
+            popSingleActionAlert("Cannot Send SMS", "This application is not authorized to send SMS.")
+        }
+    }
+}
+
+
+extension ContactDetailsViewController: MFMailComposeViewControllerDelegate {
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true)
+    }
+    
+    func sendEmailTo(to email: String){
+        if MFMailComposeViewController.canSendMail() {
+            let mail = MFMailComposeViewController()
+            mail.mailComposeDelegate = self
+            mail.setToRecipients([email])
+            mail.setMessageBody("<p></p>", isHTML: true)
+
+            present(mail, animated: true)
+        } else {
+            popSingleActionAlert("Cannot Send E-Mail", "This application is not authorized to send e-mail.")
+        }
     }
 }
